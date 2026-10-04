@@ -66,7 +66,7 @@ export default function BookPage() {
                   Thank you for your booking request. Our team will review your details and connect you with a qualified physiotherapist in your area. We will be in touch shortly to confirm your appointment.
                 </p>
 
-                {(sport || service || loc) && (
+                {(sport || service || loc || area) && (
                   <div className="mt-6 grid gap-2 rounded-xl bg-surface-100 p-5 text-left text-sm">
                     {sport && <div className="flex items-center gap-2"><Activity className="h-4 w-4 text-teal-600" /> <span className="font-semibold text-navy-700">Sport:</span> <span className="text-ink-light">{sport.name}</span></div>}
                     {service && <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-teal-600" /> <span className="font-semibold text-navy-700">Service:</span> <span className="text-ink-light">{service.name}</span></div>}
