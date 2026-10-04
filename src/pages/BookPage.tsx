@@ -6,10 +6,24 @@ import BookingSearch from '@/components/BookingSearch';
 import { sports } from '@/data/sports';
 import { services } from '@/data/services';
 import { locations } from '@/data/locations';
+import { submitEnquiry } from '@/lib/enquiry';
 
 export default function BookPage() {
   const [searchParams] = useSearchParams();
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [selectedSport, setSelectedSport] = useState(sportSlug);
+  const [selectedService, setSelectedService] = useState(serviceSlug);
+  const [selectedLocation, setSelectedLocation] = useState(locSlug);
+  const [selectedArea, setSelectedArea] = useState(area);
+  const [selectedDate, setSelectedDate] = useState(date);
+  const [selectedTime, setSelectedTime] = useState(time);
+  const [venue, setVenue] = useState('');
+  const [message, setMessage] = useState('');
 
   const sportSlug = searchParams.get('sport') || '';
   const serviceSlug = searchParams.get('service') || '';
@@ -22,10 +36,33 @@ export default function BookPage() {
   const service = services.find((s) => s.slug === serviceSlug);
   const loc = locations.find((l) => l.slug === locSlug);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (submitting) return;
+    setError('');
+    setSubmitting(true);
+    try {
+      await submitEnquiry({
+        name,
+        phone,
+        email,
+        sport: selectedSport,
+        service: service?.slug === selectedService ? service.name : services.find((item) => item.slug === selectedService)?.name,
+        city: locations.find((item) => item.slug === selectedLocation)?.name,
+        location: selectedArea || venue,
+        date: selectedDate,
+        time: selectedTime,
+        message,
+        type: 'booking',
+        sourcePage: window.location.href,
+      });
+      setSubmitted(true);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "We couldn't submit your enquiry right now. Please try again or contact us directly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -108,22 +145,22 @@ export default function BookPage() {
                 <div className="mt-5 grid gap-4 sm:grid-cols-2">
                   <div>
                     <label className="mb-1.5 block text-xs font-semibold text-navy-600">Full Name</label>
-                    <input type="text" required className="input-field" placeholder="Your name" />
+                    <input type="text" required value={name} onChange={(e) => setName(e.target.value)} className="input-field" placeholder="Your name" />
                   </div>
                   <div>
                     <label className="mb-1.5 block text-xs font-semibold text-navy-600">Phone</label>
-                    <input type="tel" required className="input-field" placeholder="+91 83608 67991" />
+                    <input type="tel" required value={phone} onChange={(e) => setPhone(e.target.value)} className="input-field" placeholder="+91 83608 67991" />
                   </div>
                   <div className="sm:col-span-2">
                     <label className="mb-1.5 block text-xs font-semibold text-navy-600">Email</label>
-                    <input type="email" required className="input-field" placeholder="you@example.com" />
+                    <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} className="input-field" placeholder="you@example.com" />
                   </div>
                 </div>
 
                 <div className="mt-4 grid gap-4 sm:grid-cols-2">
                   <div>
                     <label className="mb-1.5 block text-xs font-semibold text-navy-600">Sport</label>
-                    <select defaultValue={sportSlug} className="select-field">
+                    <select value={selectedSport} onChange={(e) => setSelectedSport(e.target.value)} className="select-field">
                       <option value="">Select sport</option>
                       {sports.map((s) => (
                         <option key={s.slug} value={s.slug}>{s.name}</option>
@@ -132,7 +169,7 @@ export default function BookPage() {
                   </div>
                   <div>
                     <label className="mb-1.5 block text-xs font-semibold text-navy-600">Service</label>
-                    <select defaultValue={serviceSlug} className="select-field">
+                    <select required value={selectedService} onChange={(e) => setSelectedService(e.target.value)} className="select-field">
                       <option value="">Select service</option>
                       {services.map((s) => (
                         <option key={s.slug} value={s.slug}>{s.name}</option>
@@ -141,7 +178,7 @@ export default function BookPage() {
                   </div>
                   <div>
                     <label className="mb-1.5 block text-xs font-semibold text-navy-600">Location</label>
-                    <select defaultValue={locSlug} className="select-field">
+                    <select required value={selectedLocation} onChange={(e) => setSelectedLocation(e.target.value)} className="select-field">
                       <option value="">Select location</option>
                       {locations.map((l) => (
                         <option key={l.slug} value={l.slug}>{l.name}</option>
@@ -150,23 +187,30 @@ export default function BookPage() {
                   </div>
                   <div>
                     <label className="mb-1.5 block text-xs font-semibold text-navy-600">Preferred Date</label>
-                    <input type="date" defaultValue={date} className="input-field" />
+                    <input type="date" required value={selectedDate} onChange={(e) => setSelectedDate(e.target.value)} className="input-field" />
                   </div>
                 </div>
 
                 <div className="mt-4">
+                  <label className="mb-1.5 block text-xs font-semibold text-navy-600">Preferred Time</label>
+                  <input type="time" required value={selectedTime} onChange={(e) => setSelectedTime(e.target.value)} className="input-field" />
+                </div>
+
+                <div className="mt-4">
                   <label className="mb-1.5 block text-xs font-semibold text-navy-600">Venue / Training Location Address</label>
-                  <input type="text" className="input-field" placeholder="Tell us where you train or play" />
+                  <input type="text" value={venue} onChange={(e) => setVenue(e.target.value)} className="input-field" placeholder="Tell us where you train or play" />
                 </div>
 
                 <div className="mt-4">
                   <label className="mb-1.5 block text-xs font-semibold text-navy-600">Additional Information</label>
-                  <textarea rows={4} className="input-field resize-none" placeholder="Describe your injury or the support you need..." />
+                  <textarea rows={4} value={message} onChange={(e) => setMessage(e.target.value)} className="input-field resize-none" placeholder="Describe your injury or the support you need..." />
                 </div>
 
-                <button type="submit" className="btn-primary mt-6 w-full">
+                <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
+                {error && <p role="alert" className="mt-4 rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700">{error}</p>}
+                <button type="submit" disabled={submitting} className="btn-primary mt-6 w-full disabled:cursor-not-allowed disabled:opacity-60">
                   <CalendarPlus className="h-4 w-4" />
-                  Submit Booking Request
+                  {submitting ? "Submitting..." : "Submit Booking Request"}
                   <ArrowRight className="h-4 w-4" />
                 </button>
                 <p className="mt-3 text-center text-xs text-ink-light">
