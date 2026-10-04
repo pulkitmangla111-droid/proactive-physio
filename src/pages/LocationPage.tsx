@@ -27,7 +27,7 @@ export default function LocationPage() {
       provider: { '@type': 'Organization', name: 'ProActive Physio', url: 'https://proactivephysio.in/' },
       areaServed: { '@type': 'City', name: loc.name },
       description: loc.intro,
-      url: `https://proactivephysio.in/locations/${loc.slug}`,
+      url: `https://proactivephysio.in/locations/${loc.slug}/`,
     },
     {
       '@context': 'https://schema.org',
