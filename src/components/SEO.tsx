@@ -10,7 +10,8 @@ interface SEOProps {
 
 export default function SEO({ title, description, structuredData = [], image = 'https://proactivephysio.in/proactive_physio_logo.png' }: SEOProps) {
   const location = useLocation();
-  const canonicalUrl = `https://proactivephysio.in${location.pathname}`;
+  const cleanPath = location.pathname.replace(/\/+$/, '') || '/';
+  const canonicalUrl = `https://proactivephysio.in${cleanPath === '/' ? '/' : cleanPath + '/'}`;
 
   useEffect(() => {
     document.title = title;
