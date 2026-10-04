@@ -10,7 +10,6 @@ import BookingSearch from '@/components/BookingSearch';
 import CTASection from '@/components/CTASection';
 import { sports } from '@/data/sports';
 import { locations } from '@/data/locations';
-import { notFound } from '@/lib/utils';
 
 export default function SportPage() {
   const { sport: slug } = useParams<{ sport: string }>();
