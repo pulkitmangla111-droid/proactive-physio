@@ -15,6 +15,8 @@ export default function ContactPage() {
   return (
     <>
       <SEO
+        title="Contact ProActive Physio | Physiotherapy in Delhi, Gurugram & Chandigarh"
+        description="Contact ProActive Physio for physiotherapy bookings, sports injury care, geriatric physiotherapy and online consultations in Delhi, Gurugram and Chandigarh."
         structuredData={[{
           '@context': 'https://schema.org',
           '@type': 'Organization',
@@ -24,9 +26,6 @@ export default function ContactPage() {
           email: 'proactivephysioteam@gmail.com',
           areaServed: ['Delhi', 'Gurugram', 'Chandigarh'],
         }]}
-      <SEO
-        title="Contact ProActive Physio | Get in Touch"
-        description="Contact ProActive Physio for physiotherapy bookings, geriatric physiotherapy, online consultations, team enquiries and general questions in Delhi, Gurugram and Chandigarh."
       />
 
       <PageHeader
