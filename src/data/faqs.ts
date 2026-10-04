@@ -92,7 +92,7 @@ export const chandigarhFaqs: FAQItem[] = [
   },
 ];
 
-export const rohiniFaqs: FAQItem[] = [
+export const delhiFaqs: FAQItem[] = [
   {
     question: 'Do you provide physiotherapy across Delhi?',
     answer:
