@@ -4,6 +4,8 @@ create table if not exists public.enquiries (
   phone text,
   email text,
   service text,
+  sport text,
+  role text,
   city text,
   location text,
   date text,
