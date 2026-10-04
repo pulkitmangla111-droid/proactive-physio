@@ -4,7 +4,7 @@ export const sports = [
     name: 'Cricket',
     icon: 'CircleDot',
     image:
-      'https://images.pexels.com/photos/13509965/pexels-photo-13509965.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+      'https://images.pexels.com/photos/13509965/pexels-photo-13509965.jpeg?auto=compress&cs=tinysrgb&h=480&w=640',
     h1: 'Cricket Physiotherapy',
     intro:
       'Cricket places unique demands on the body across every format — from the explosive sprinting of T20 to the endurance of multi-day matches. ProActive Physio provides specialist sports physiotherapy for cricket players, delivered on-ground at your training venue, net session or match day.',
@@ -33,7 +33,7 @@ export const sports = [
     name: 'Football',
     icon: 'Circle',
     image:
-      'https://images.pexels.com/photos/30612723/pexels-photo-30612723.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+      'https://images.pexels.com/photos/30612723/pexels-photo-30612723.jpeg?auto=compress&cs=tinysrgb&h=480&w=640',
     h1: 'Football Physiotherapy',
     intro:
       'Football is one of the most physically demanding sports in the world, combining sprinting, sudden changes of direction, jumping and repeated high-intensity efforts. ProActive Physio provides specialist sports physiotherapy for football players, delivered at your training ground or match venue.',
@@ -62,7 +62,7 @@ export const sports = [
     name: 'Golf',
     icon: 'Disc',
     image:
-      'https://images.pexels.com/photos/6256594/pexels-photo-6256594.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+      'https://images.pexels.com/photos/6256594/pexels-photo-6256594.jpeg?auto=compress&cs=tinysrgb&h=480&w=640',
     h1: 'Golf Physiotherapy',
     intro:
       'Golf may appear low-impact, but the golf swing generates enormous rotational forces through the spine, shoulders, hips and wrists. ProActive Physio provides specialist physiotherapy for golfers, delivered at your course, driving range or training venue.',
@@ -91,7 +91,7 @@ export const sports = [
     name: 'Tennis',
     icon: 'Disc3',
     image:
-      'https://images.pexels.com/photos/36765778/pexels-photo-36765778.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+      'https://images.pexels.com/photos/36765778/pexels-photo-36765778.jpeg?auto=compress&cs=tinysrgb&h=480&w=640',
     h1: 'Tennis Physiotherapy',
     intro:
       'Tennis combines explosive movement, repetitive high-velocity arm actions and prolonged match endurance. ProActive Physio provides specialist physiotherapy for tennis players, delivered at your court, academy or training venue.',
@@ -120,7 +120,7 @@ export const sports = [
     name: 'Kabaddi',
     icon: 'Octagon',
     image:
-      'https://images.pexels.com/photos/5217422/pexels-photo-5217422.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+      'https://images.pexels.com/photos/5217422/pexels-photo-5217422.jpeg?auto=compress&cs=tinysrgb&h=480&w=640',
     h1: 'Kabaddi Physiotherapy',
     intro:
       'Kabaddi is one of India\u2019s most physically intense sports, combining contact, rapid changes of direction, explosive lunges and sustained grappling. ProActive Physio provides specialist physiotherapy for kabaddi players, delivered at your mat, training centre or tournament venue.',
@@ -149,7 +149,7 @@ export const sports = [
     name: 'Wrestling',
     icon: 'Hexagon',
     image:
-      'https://images.pexels.com/photos/5217424/pexels-photo-5217424.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+      'https://images.pexels.com/photos/5217424/pexels-photo-5217424.jpeg?auto=compress&cs=tinysrgb&h=480&w=640',
     h1: 'Wrestling Physiotherapy',
     intro:
       'Wrestling is one of the oldest and most physically demanding sports, requiring sustained strength, explosive power, flexibility and endurance. ProActive Physio provides specialist physiotherapy for wrestlers, delivered at your akhara, training centre or competition venue.',
@@ -178,7 +178,7 @@ export const sports = [
     name: 'Hockey',
     icon: 'CircleDashed',
     image:
-      'https://images.pexels.com/photos/34152252/pexels-photo-34152252.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+      'https://images.pexels.com/photos/34152252/pexels-photo-34152252.jpeg?auto=compress&cs=tinysrgb&h=480&w=640',
     h1: 'Hockey Physiotherapy',
     intro:
       'Hockey combines sustained running, rapid changes of direction, sprinting and the repetitive asymmetrical loading of the hockey stick action. ProActive Physio provides specialist physiotherapy for hockey players, delivered at your field, training ground or match venue.',
