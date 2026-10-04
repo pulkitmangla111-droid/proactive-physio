@@ -10,7 +10,6 @@ import { publishedLocations } from '@/data/locations';
 import { sports } from '@/data/sports';
 import { services } from '@/data/services';
 import { locationFaqs } from '@/data/faqs';
-import { notFound } from '@/lib/utils';
 
 export default function LocationPage() {
   const { location: slug } = useParams<{ location: string }>();
