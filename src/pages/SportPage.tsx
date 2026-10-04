@@ -4,6 +4,7 @@ import {
   MapPin, CheckCircle2, CalendarPlus, ChevronRight,
 } from 'lucide-react';
 import SEO from '@/components/SEO';
+import NotFoundPage from '@/pages/NotFoundPage';
 import PageHeader from '@/components/PageHeader';
 import BookingSearch from '@/components/BookingSearch';
 import CTASection from '@/components/CTASection';
@@ -15,7 +16,7 @@ export default function SportPage() {
   const { sport: slug } = useParams<{ sport: string }>();
   const sport = sports.find((s) => s.slug === slug);
 
-  if (!sport) return notFound();
+  if (!sport) return <NotFoundPage />;
 
   const structuredData = [
     {
