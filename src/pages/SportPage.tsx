@@ -24,7 +24,7 @@ export default function SportPage() {
       serviceType: `${sport.name} Physiotherapy`,
       provider: { '@type': 'Organization', name: 'ProActive Physio' },
       description: sport.intro,
-      url: `https://proactive-physio-web-yefd.bolt.host/sports/${sport.slug}`,
+      url: `https://proactivephysio.in/sports/${sport.slug}`,
     },
   ];
 
