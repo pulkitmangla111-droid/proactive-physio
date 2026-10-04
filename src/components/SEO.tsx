@@ -5,9 +5,10 @@ interface SEOProps {
   title: string;
   description: string;
   structuredData?: object[];
+  image?: string;
 }
 
-export default function SEO({ title, description, structuredData = [] }: SEOProps) {
+export default function SEO({ title, description, structuredData = [], image = 'https://proactivephysio.in/proactive_physio_logo.png' }: SEOProps) {
   const location = useLocation();
   const canonicalUrl = `https://proactivephysio.in${location.pathname}`;
 
@@ -31,6 +32,8 @@ export default function SEO({ title, description, structuredData = [] }: SEOProp
     setMeta('meta[property="og:url"]', 'property', canonicalUrl);
     setMeta('meta[property="og:type"]', 'property', 'website');
     setMeta('meta[property="og:site_name"]', 'property', 'ProActive Physio');
+    setMeta('meta[property="og:image"]', 'property', image);
+    setMeta('meta[name="twitter:image"]', 'name', image);
     setMeta('meta[name="twitter:card"]', 'name', 'summary_large_image');
     setMeta('meta[name="twitter:title"]', 'name', title);
     setMeta('meta[name="twitter:description"]', 'name', description);
