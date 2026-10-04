@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://proactivephysio.in/</loc><priority>1.0</priority></url>
+
   <url><loc>https://proactivephysio.in/services/</loc><priority>0.9</priority></url>
   <url><loc>https://proactivephysio.in/services/sports-physiotherapy/</loc><priority>0.9</priority></url>
   <url><loc>https://proactivephysio.in/services/sports-injury-care/</loc><priority>0.9</priority></url>
@@ -8,13 +9,23 @@
   <url><loc>https://proactivephysio.in/services/sports-taping/</loc><priority>0.8</priority></url>
   <url><loc>https://proactivephysio.in/services/warm-up/</loc><priority>0.8</priority></url>
   <url><loc>https://proactivephysio.in/services/recovery/</loc><priority>0.8</priority></url>
-  <url><loc>https://proactivephysio.in/services/geriatric-physiotherapy/</loc><priority>0.9</priority></url>
+  <url><loc>https://proactivephysio.in/services/geriatric-physiotherapy/</loc><priority>0.8</priority></url>
   <url><loc>https://proactivephysio.in/services/online-physiotherapy-consultation/</loc><priority>0.8</priority></url>
-  <url><loc>https://proactivephysio.in/locations/</loc><priority>0.9</priority></url>
-  <url><loc>https://proactivephysio.in/locations/chandigarh/</loc><priority>0.9</priority></url>
-  <url><loc>https://proactivephysio.in/locations/gurugram/</loc><priority>0.9</priority></url>
-  <url><loc>https://proactivephysio.in/locations/delhi/</loc><priority>0.9</priority></url>
+
   <url><loc>https://proactivephysio.in/sports/</loc><priority>0.8</priority></url>
+  <url><loc>https://proactivephysio.in/sports/cricket/</loc><priority>0.8</priority></url>
+  <url><loc>https://proactivephysio.in/sports/football/</loc><priority>0.8</priority></url>
+  <url><loc>https://proactivephysio.in/sports/golf/</loc><priority>0.8</priority></url>
+  <url><loc>https://proactivephysio.in/sports/tennis/</loc><priority>0.8</priority></url>
+  <url><loc>https://proactivephysio.in/sports/kabaddi/</loc><priority>0.8</priority></url>
+  <url><loc>https://proactivephysio.in/sports/wrestling/</loc><priority>0.8</priority></url>
+  <url><loc>https://proactivephysio.in/sports/hockey/</loc><priority>0.8</priority></url>
+
+  <url><loc>https://proactivephysio.in/locations/</loc><priority>0.9</priority></url>
+  <url><loc>https://proactivephysio.in/locations/delhi/</loc><priority>0.9</priority></url>
+  <url><loc>https://proactivephysio.in/locations/gurugram/</loc><priority>0.9</priority></url>
+  <url><loc>https://proactivephysio.in/locations/chandigarh/</loc><priority>0.9</priority></url>
+
   <url><loc>https://proactivephysio.in/how-it-works/</loc><priority>0.7</priority></url>
   <url><loc>https://proactivephysio.in/for-players/</loc><priority>0.7</priority></url>
   <url><loc>https://proactivephysio.in/for-teams/</loc><priority>0.7</priority></url>
@@ -24,4 +35,6 @@
   <url><loc>https://proactivephysio.in/about/</loc><priority>0.6</priority></url>
   <url><loc>https://proactivephysio.in/contact/</loc><priority>0.7</priority></url>
   <url><loc>https://proactivephysio.in/book/</loc><priority>0.8</priority></url>
+  <url><loc>https://proactivephysio.in/privacy-policy/</loc><priority>0.4</priority></url>
+  <url><loc>https://proactivephysio.in/terms/</loc><priority>0.4</priority></url>
 </urlset>
