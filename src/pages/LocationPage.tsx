@@ -156,7 +156,7 @@ export default function LocationPage() {
                 className="card group flex items-center gap-3"
               >
                 <div className="h-12 w-12 overflow-hidden rounded-lg">
-                  <img src={sport.image} alt={sport.name} className="h-full w-full object-cover" />
+                  <img loading="lazy" decoding="async" src={sport.image} alt={sport.name} className="h-full w-full object-cover" />
                 </div>
                 <div>
                   <h3 className="text-sm font-bold text-navy-700 group-hover:text-teal-600">{sport.name}</h3>
