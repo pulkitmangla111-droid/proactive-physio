@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { ArrowRight, MapPin, Activity, Users, CheckCircle2, Building2, CalendarPlus } from 'lucide-react';
 import SEO from '@/components/SEO';
+import NotFoundPage from '@/pages/NotFoundPage';
 import PageHeader from '@/components/PageHeader';
 import BookingSearch from '@/components/BookingSearch';
 import CTASection from '@/components/CTASection';
@@ -15,7 +16,7 @@ export default function LocationPage() {
   const { location: slug } = useParams<{ location: string }>();
   const loc = publishedLocations.find((l) => l.slug === slug);
 
-  if (!loc) return notFound();
+  if (!loc) return <NotFoundPage />;
 
   const faqs = locationFaqs[loc.slug] || [];
 
