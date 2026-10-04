@@ -15,6 +15,16 @@ export default function ContactPage() {
   return (
     <>
       <SEO
+        structuredData={[{
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          name: 'ProActive Physio',
+          url: 'https://proactivephysio.in',
+          telephone: '+91-8360867991',
+          email: 'proactivephysioteam@gmail.com',
+          areaServed: ['Delhi', 'Gurugram', 'Chandigarh'],
+        }]}
+      <SEO
         title="Contact ProActive Physio | Get in Touch"
         description="Contact ProActive Physio for physiotherapy bookings, geriatric physiotherapy, online consultations, team enquiries and general questions in Delhi, Gurugram and Chandigarh."
       />
