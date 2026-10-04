@@ -25,7 +25,7 @@ export default function PageHeader({
     <section className="relative overflow-hidden bg-navy-700 pt-28 pb-16 lg:pt-32 lg:pb-20">
       {image && (
         <div className="absolute inset-0">
-          <img src={image} alt="" className="h-full w-full object-cover opacity-20" />
+          <img src={image} alt="ProActive Physio physiotherapy services" className="h-full w-full object-cover opacity-20" />
           <div className="absolute inset-0 bg-gradient-to-b from-navy-700/80 via-navy-700/85 to-navy-700" />
         </div>
       )}
