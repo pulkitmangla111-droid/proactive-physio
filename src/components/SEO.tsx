@@ -6,38 +6,52 @@ interface SEOProps {
   description: string;
   structuredData?: object[];
   image?: string;
+  noindex?: boolean;
 }
 
-export default function SEO({ title, description, structuredData = [], image = 'https://proactivephysio.in/proactive_physio_logo.png' }: SEOProps) {
+const SITE_URL = 'https://proactivephysio.in';
+const DEFAULT_IMAGE = `${SITE_URL}/proactive_physio_logo.png`;
+
+export default function SEO({
+  title,
+  description,
+  structuredData = [],
+  image = DEFAULT_IMAGE,
+  noindex = false,
+}: SEOProps) {
   const location = useLocation();
   const cleanPath = location.pathname.replace(/\/+$/, '') || '/';
-  const canonicalUrl = `https://proactivephysio.in${cleanPath === '/' ? '/' : cleanPath + '/'}`;
+  const canonicalUrl = `${SITE_URL}${cleanPath === '/' ? '/' : cleanPath + '/'}`;
 
   useEffect(() => {
     document.title = title;
 
-    const setMeta = (selector: string, attribute: string, content: string) => {
+    const setMeta = (selector: string, attribute: 'name' | 'property', content: string) => {
       let meta = document.querySelector<HTMLMetaElement>(selector);
       if (!meta) {
         meta = document.createElement('meta');
-        if (attribute === 'name') meta.setAttribute('name', selector.match(/name="([^"]+)"/)?.[1] || '');
-        if (attribute === 'property') meta.setAttribute('property', selector.match(/property="([^"]+)"/)?.[1] || '');
+        meta.setAttribute(attribute, selector.match(new RegExp(`${attribute}="([^"]+)"`))?.[1] || '');
         document.head.appendChild(meta);
       }
       meta.setAttribute('content', content);
     };
 
     setMeta('meta[name="description"]', 'name', description);
+    setMeta('meta[name="robots"]', 'name', noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
+
     setMeta('meta[property="og:title"]', 'property', title);
     setMeta('meta[property="og:description"]', 'property', description);
     setMeta('meta[property="og:url"]', 'property', canonicalUrl);
     setMeta('meta[property="og:type"]', 'property', 'website');
     setMeta('meta[property="og:site_name"]', 'property', 'ProActive Physio');
     setMeta('meta[property="og:image"]', 'property', image);
-    setMeta('meta[name="twitter:image"]', 'name', image);
+    setMeta('meta[property="og:locale"]', 'property', 'en_IN');
+
     setMeta('meta[name="twitter:card"]', 'name', 'summary_large_image');
     setMeta('meta[name="twitter:title"]', 'name', title);
     setMeta('meta[name="twitter:description"]', 'name', description);
+    setMeta('meta[name="twitter:image"]', 'name', image);
+    setMeta('meta[name="twitter:url"]', 'name', canonicalUrl);
 
     let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!canonical) {
@@ -47,27 +61,38 @@ export default function SEO({ title, description, structuredData = [], image = '
     }
     canonical.href = canonicalUrl;
 
-    let robots = document.querySelector<HTMLMetaElement>('meta[name="robots"]');
-    if (!robots) {
-      robots = document.createElement('meta');
-      robots.name = 'robots';
-      document.head.appendChild(robots);
-    }
-    robots.content = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+    document.documentElement.lang = 'en';
 
     const existing = document.querySelectorAll('script[data-structured-data]');
-    existing.forEach((s) => s.remove());
+    existing.forEach((script) => script.remove());
 
-    structuredData.forEach((data) => {
+    const siteStructuredData = [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'ProActive Physio',
+        url: `${SITE_URL}/`,
+        inLanguage: 'en-IN',
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'ProActive Physio',
+        url: `${SITE_URL}/`,
+        logo: `${SITE_URL}/proactive_physio_logo.png`,
+        email: 'proactivephysioteam@gmail.com',
+        telephone: '+91-8360867991',
+      },
+    ];
+
+    [...siteStructuredData, ...structuredData].forEach((data) => {
       const script = document.createElement('script');
       script.type = 'application/ld+json';
       script.setAttribute('data-structured-data', 'true');
       script.textContent = JSON.stringify(data);
       document.head.appendChild(script);
     });
-
-    window.scrollTo(0, 0);
-  }, [title, description, location.pathname, structuredData]);
+  }, [title, description, image, noindex, location.pathname, structuredData]);
 
   return null;
 }
