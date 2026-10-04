@@ -12,17 +12,26 @@ export default function SEO({ title, description, structuredData = [] }: SEOProp
 
   useEffect(() => {
     document.title = title;
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute('content', description);
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'description';
-      meta.content = description;
-      document.head.appendChild(meta);
-    }
 
-    const canonicalUrl = `https://proactive-physio-web-yefd.bolt.host${location.pathname}`;
+    const setMeta = (selector: string, attribute: string, content: string) => {
+      let meta = document.querySelector<HTMLMetaElement>(selector);
+      if (!meta) {
+        meta = document.createElement('meta');
+        if (attribute === 'name') meta.setAttribute('name', selector.match(/name="([^"]+)"/)?.[1] || '');
+        if (attribute === 'property') meta.setAttribute('property', selector.match(/property="([^"]+)"/)?.[1] || '');
+        document.head.appendChild(meta);
+      }
+      meta.setAttribute('content', content);
+    };
+
+    setMeta('meta[name="description"]', 'name', description);
+    setMeta('meta[property="og:title"]', 'property', title);
+    setMeta('meta[property="og:description"]', 'property', description);
+    setMeta('meta[property="og:url"]', 'property', `https://proactivephysio.in${location.pathname}`);
+    setMeta('meta[name="twitter:title"]', 'name', title);
+    setMeta('meta[name="twitter:description"]', 'name', description);
+
+    const canonicalUrl = `https://proactivephysio.in${location.pathname}`;
     let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!canonical) {
       canonical = document.createElement('link');
@@ -31,8 +40,13 @@ export default function SEO({ title, description, structuredData = [] }: SEOProp
     }
     canonical.href = canonicalUrl;
 
-    const robots = document.querySelector('meta[name="robots"]');
-    if (robots) robots.setAttribute('content', 'index, follow');
+    let robots = document.querySelector<HTMLMetaElement>('meta[name="robots"]');
+    if (!robots) {
+      robots = document.createElement('meta');
+      robots.name = 'robots';
+      document.head.appendChild(robots);
+    }
+    robots.content = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
 
     const existing = document.querySelectorAll('script[data-structured-data]');
     existing.forEach((s) => s.remove());
