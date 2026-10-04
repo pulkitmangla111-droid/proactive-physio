@@ -5,6 +5,7 @@ import {
   MapPin,
 } from 'lucide-react';
 import SEO from '@/components/SEO';
+import NotFoundPage from '@/pages/NotFoundPage';
 import PageHeader from '@/components/PageHeader';
 import BookingSearch from '@/components/BookingSearch';
 import CTASection from '@/components/CTASection';
@@ -20,7 +21,7 @@ export default function ServicePage() {
   const { service: slug } = useParams<{ service: string }>();
   const service = services.find((s) => s.slug === slug);
 
-  if (!service) return notFound();
+  if (!service) return <NotFoundPage />;
 
   const Icon = serviceIcons[service.icon] || Activity;
 
