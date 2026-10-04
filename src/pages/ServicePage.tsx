@@ -11,7 +11,6 @@ import BookingSearch from '@/components/BookingSearch';
 import CTASection from '@/components/CTASection';
 import { services } from '@/data/services';
 import { locations } from '@/data/locations';
-import { notFound } from '@/lib/utils';
 
 const serviceIcons: Record<string, React.ComponentType<{ className?: string; strokeWidth?: number | string }>> = {
   Stethoscope, Bandage, HeartPulse, StretchHorizontal, Flame, BatteryCharging, Accessibility, Video,
