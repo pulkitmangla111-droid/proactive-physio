@@ -39,8 +39,8 @@ jobs:
         env:
           VITE_BASE_PATH: /
 
-      - name: Add SPA fallback
-        run: cp dist/index.html dist/404.html
+      - name: Prepare canonical route entry points
+        run: node scripts/generate-spa-routes.mjs
 
       - name: Add custom domain
         run: echo "proactivephysio.in" > dist/CNAME
