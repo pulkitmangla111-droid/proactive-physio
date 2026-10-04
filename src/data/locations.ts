@@ -33,7 +33,7 @@ export const locations: LocationConfig[] = [
     cta: 'Enquire About Physiotherapy in Chandigarh',
     metaTitle: 'Sports Physiotherapy in Chandigarh | ProActive Physio',
     metaDescription: 'Explore sports physiotherapy and rehabilitation services in Chandigarh with ProActive Physio. Check service availability and enquire about an appointment.',
-    image: 'https://images.pexels.com/photos/3760275/pexels-photo-3760275.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: 'https://images.pexels.com/photos/3760275/pexels-photo-3760275.jpeg?auto=compress&cs=tinysrgb&h=480&w=640',
     publicationStatus: 'published',
   },
   {
@@ -51,7 +51,7 @@ export const locations: LocationConfig[] = [
     cta: 'Enquire About Physiotherapy in Gurugram',
     metaTitle: 'Sports Physiotherapy in Gurugram | ProActive Physio',
     metaDescription: 'Looking for sports physiotherapy in Gurugram? Explore available rehabilitation services from ProActive Physio and enquire about an appointment.',
-    image: 'https://images.pexels.com/photos/34085834/pexels-photo-34085834.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: 'https://images.pexels.com/photos/34085834/pexels-photo-34085834.jpeg?auto=compress&cs=tinysrgb&h=480&w=640',
     publicationStatus: 'published',
   },
   {
@@ -69,7 +69,7 @@ export const locations: LocationConfig[] = [
     cta: 'Enquire About Physiotherapy in Delhi',
     metaTitle: 'Sports Physiotherapy in Delhi | ProActive Physio',
     metaDescription: 'Explore sports physiotherapy and rehabilitation services in Delhi with ProActive Physio. Check available service areas and request an appointment.',
-    image: 'https://images.pexels.com/photos/29631854/pexels-photo-29631854.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: 'https://images.pexels.com/photos/29631854/pexels-photo-29631854.jpeg?auto=compress&cs=tinysrgb&h=480&w=640',
     publicationStatus: 'published',
   },
 ];
