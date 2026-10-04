@@ -30,7 +30,7 @@ export default function SportsIndexPage() {
                 className="group relative overflow-hidden rounded-2xl border border-surface-300 bg-navy-700 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
               >
                 <div className="aspect-[16/10] overflow-hidden">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={sport.image}
                     alt={`${sport.name} physiotherapy`}
                     className="h-full w-full object-cover opacity-60 transition-all duration-500 group-hover:scale-110 group-hover:opacity-50"
