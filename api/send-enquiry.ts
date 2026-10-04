@@ -1,4 +1,3 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { createClient } from '@supabase/supabase-js';
 
 const ALLOWED_ORIGINS = new Set([
@@ -28,7 +27,7 @@ function escapeHtml(value: string) {
   return value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+export default async function handler(req: any, res: any) {
   const origin = String(req.headers.origin || '');
   if (origin && !ALLOWED_ORIGINS.has(origin)) {
     return res.status(403).json({ error: 'Origin not allowed.' });
