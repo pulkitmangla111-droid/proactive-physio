@@ -39,7 +39,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="overflow-hidden rounded-3xl shadow-xl">
-              <img
+              <img loading="lazy" decoding="async"
                 src="https://images.pexels.com/photos/27684617/pexels-photo-27684617.jpeg?auto=compress&cs=tinysrgb&w=940&h=700&fit=crop"
                 alt="Physiotherapist providing treatment to an athlete"
                 className="h-full w-full object-cover"
