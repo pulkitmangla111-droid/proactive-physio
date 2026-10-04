@@ -62,7 +62,7 @@ export const locations = [
       'https://images.pexels.com/photos/3760275/pexels-photo-3760275.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
   },
   {
-    slug: 'rohini',
+    slug: 'delhi',
     name: 'Delhi',
     state: 'Delhi',
     region: 'Delhi NCR',
