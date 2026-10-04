@@ -32,6 +32,7 @@ jobs:
         uses: actions/configure-pages@v5
         with:
           enablement: true
+          cname: proactivephysio.in
 
       - name: Install dependencies
         run: npm ci
@@ -39,7 +40,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          VITE_BASE_PATH: /proactive-physio/
+          VITE_BASE_PATH: /
 
       - name: Add SPA fallback
         run: cp dist/index.html dist/404.html
