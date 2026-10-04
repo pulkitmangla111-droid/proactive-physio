@@ -49,6 +49,9 @@ export default function HomePage() {
       description: 'ProActive Physio connects athletes, players, coaches, academies, clubs and sports teams with qualified physiotherapists who provide professional sports physiotherapy services directly at sports grounds, courts, fields, stadiums, academies and training venues.',
       areaServed: locations.map((l) => ({ '@type': 'City', name: l.name })),
       url: 'https://proactivephysio.in',
+      telephone: '+91-8360867991',
+      email: 'proactivephysioteam@gmail.com',
+      contactPoint: [{ '@type': 'ContactPoint', telephone: '+91-8360867991', email: 'proactivephysioteam@gmail.com', contactType: 'customer service', areaServed: 'IN' }],
     },
     {
       '@context': 'https://schema.org',
