@@ -118,5 +118,5 @@ export const delhiFaqs: FAQItem[] = [
 export const locationFaqs: Record<string, FAQItem[]> = {
   gurugram: gurugramFaqs,
   chandigarh: chandigarhFaqs,
-  rohini: rohiniFaqs,
+  delhi: delhiFaqs,
 };
