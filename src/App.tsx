@@ -22,7 +22,7 @@ import NotFoundPage from '@/pages/NotFoundPage';
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<HomePage />} />
