@@ -8,8 +8,17 @@ export default function FAQPage() {
   return (
     <>
       <SEO
-        title="FAQ | ProActive Physio"
-        description="Frequently asked questions about ProActive Physio — physiotherapy services, sports injury care, geriatric physiotherapy and online consultations in Delhi, Gurugram and Chandigarh."
+        title="Physiotherapy FAQs | ProActive Physio Delhi, Gurugram & Chandigarh"
+        description="Answers about sports physiotherapy, injury care, rehabilitation, geriatric physiotherapy, online consultations, bookings and service areas in Delhi, Gurugram and Chandigarh."
+        structuredData={[{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: generalFaqs.map((faq) => ({
+            '@type': 'Question',
+            name: faq.question,
+            acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+          })),
+        }]}
       />
 
       <PageHeader
