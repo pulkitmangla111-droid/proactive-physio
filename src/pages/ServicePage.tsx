@@ -32,7 +32,7 @@ export default function ServicePage() {
       provider: { '@type': 'Organization', name: 'ProActive Physio' },
       description: service.intro,
       areaServed: locations.map((l) => ({ '@type': 'City', name: l.name })),
-      url: `https://proactive-physio-web-yefd.bolt.host/services/${service.slug}`,
+      url: `https://proactivephysio.in/services/${service.slug}`,
     },
   ];
 
