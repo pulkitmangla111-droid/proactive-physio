@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://proactive-physio-web-yefd.bolt.host/sitemap.xml
+Sitemap: https://proactivephysio.in/sitemap.xml
