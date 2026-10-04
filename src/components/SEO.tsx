@@ -9,6 +9,7 @@ interface SEOProps {
 
 export default function SEO({ title, description, structuredData = [] }: SEOProps) {
   const location = useLocation();
+  const canonicalUrl = `https://proactivephysio.in${location.pathname}`;
 
   useEffect(() => {
     document.title = title;
@@ -27,11 +28,13 @@ export default function SEO({ title, description, structuredData = [] }: SEOProp
     setMeta('meta[name="description"]', 'name', description);
     setMeta('meta[property="og:title"]', 'property', title);
     setMeta('meta[property="og:description"]', 'property', description);
-    setMeta('meta[property="og:url"]', 'property', `https://proactivephysio.in${location.pathname}`);
+    setMeta('meta[property="og:url"]', 'property', canonicalUrl);
+    setMeta('meta[property="og:type"]', 'property', 'website');
+    setMeta('meta[property="og:site_name"]', 'property', 'ProActive Physio');
+    setMeta('meta[name="twitter:card"]', 'name', 'summary_large_image');
     setMeta('meta[name="twitter:title"]', 'name', title);
     setMeta('meta[name="twitter:description"]', 'name', description);
 
-    const canonicalUrl = `https://proactivephysio.in${location.pathname}`;
     let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!canonical) {
       canonical = document.createElement('link');
