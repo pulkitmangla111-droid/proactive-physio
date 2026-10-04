@@ -91,7 +91,7 @@ export default function LocationPage() {
                 <p className="mt-3 text-sm leading-relaxed text-ink-light">
                   Chandigarh, Gurugram and Delhi are the currently published cities. Specific locality coverage is confirmed for each enquiry based on the requested service, date and physiotherapist availability.
                 </p>
-              )
+              )}
             </div>
 
             <div className="lg:col-span-1">
