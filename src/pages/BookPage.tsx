@@ -14,6 +14,7 @@ export default function BookPage() {
   const sportSlug = searchParams.get('sport') || '';
   const serviceSlug = searchParams.get('service') || '';
   const locSlug = searchParams.get('location') || '';
+  const area = searchParams.get('area') || '';
   const date = searchParams.get('date') || '';
   const time = searchParams.get('time') || '';
 
@@ -70,6 +71,7 @@ export default function BookPage() {
                     {sport && <div className="flex items-center gap-2"><Activity className="h-4 w-4 text-teal-600" /> <span className="font-semibold text-navy-700">Sport:</span> <span className="text-ink-light">{sport.name}</span></div>}
                     {service && <div className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-teal-600" /> <span className="font-semibold text-navy-700">Service:</span> <span className="text-ink-light">{service.name}</span></div>}
                     {loc && <div className="flex items-center gap-2"><MapPin className="h-4 w-4 text-teal-600" /> <span className="font-semibold text-navy-700">Location:</span> <span className="text-ink-light">{loc.name}</span></div>}
+                    {area && <div className="flex items-center gap-2"><MapPin className="h-4 w-4 text-teal-600" /> <span className="font-semibold text-navy-700">Area preference:</span> <span className="text-ink-light">{area}</span></div>}
                     {date && <div className="flex items-center gap-2"><CalendarPlus className="h-4 w-4 text-teal-600" /> <span className="font-semibold text-navy-700">Date:</span> <span className="text-ink-light">{date}</span></div>}
                     {time && <div className="flex items-center gap-2"><Clock className="h-4 w-4 text-teal-600" /> <span className="font-semibold text-navy-700">Time:</span> <span className="text-ink-light">{time}</span></div>}
                   </div>
@@ -95,6 +97,7 @@ export default function BookPage() {
                   {sport && <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-teal-700"><Activity className="h-3 w-3" /> {sport.name}</span>}
                   {service && <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-teal-700"><CheckCircle2 className="h-3 w-3" /> {service.name}</span>}
                   {loc && <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-teal-700"><MapPin className="h-3 w-3" /> {loc.name}</span>}
+                  {area && <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-teal-700"><MapPin className="h-3 w-3" /> {area}</span>}
                   {date && <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-teal-700"><CalendarPlus className="h-3 w-3" /> {date}</span>}
                   {time && <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-teal-700"><Clock className="h-3 w-3" /> {time}</span>}
                 </div>
