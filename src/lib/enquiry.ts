@@ -3,6 +3,8 @@ export interface EnquiryData {
   phone?: string;
   email?: string;
   service?: string;
+  sport?: string;
+  role?: string;
   city?: string;
   location?: string;
   date?: string;
