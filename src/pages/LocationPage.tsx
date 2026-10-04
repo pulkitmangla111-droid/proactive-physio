@@ -5,7 +5,7 @@ import PageHeader from '@/components/PageHeader';
 import BookingSearch from '@/components/BookingSearch';
 import CTASection from '@/components/CTASection';
 import FAQAccordion from '@/components/FAQAccordion';
-import { locations } from '@/data/locations';
+import { publishedLocations } from '@/data/locations';
 import { sports } from '@/data/sports';
 import { services } from '@/data/services';
 import { locationFaqs } from '@/data/faqs';
@@ -13,7 +13,7 @@ import { notFound } from '@/lib/utils';
 
 export default function LocationPage() {
   const { location: slug } = useParams<{ location: string }>();
-  const loc = locations.find((l) => l.slug === slug);
+  const loc = publishedLocations.find((l) => l.slug === slug);
 
   if (!loc) return notFound();
 
@@ -24,7 +24,7 @@ export default function LocationPage() {
       '@context': 'https://schema.org',
       '@type': 'Service',
       serviceType: 'Sports Physiotherapy',
-      provider: { '@type': 'Organization', name: 'ProActive Physio' },
+      provider: { '@type': 'Organization', name: 'ProActive Physio', url: 'https://proactivephysio.in/' },
       areaServed: { '@type': 'City', name: loc.name },
       description: loc.intro,
       url: `https://proactivephysio.in/locations/${loc.slug}`,
@@ -77,15 +77,21 @@ export default function LocationPage() {
               <p className="mt-5 text-base text-ink-light leading-relaxed">{loc.description}</p>
               <p className="mt-4 text-base text-ink-light leading-relaxed">{loc.sportsContext}</p>
 
-              <h3 className="mt-8 font-display text-lg font-bold text-navy-700">Areas we cover in {loc.name}</h3>
-              <div className="mt-3 grid gap-2 sm:grid-cols-2">
-                {loc.areas.map((area) => (
-                  <div key={area} className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 flex-shrink-0 text-teal-500" />
-                    <span className="text-sm text-navy-700">{area}</span>
-                  </div>
-                ))}
-              </div>
+              <h3 className="mt-8 font-display text-lg font-bold text-navy-700">Service coverage in {loc.name}</h3>
+              {loc.confirmedAreas.length > 0 ? (
+                <div className="mt-3 grid gap-2 sm:grid-cols-2">
+                  {loc.confirmedAreas.map((area) => (
+                    <div key={area} className="flex items-center gap-2">
+                      <CheckCircle2 className="h-4 w-4 flex-shrink-0 text-teal-500" />
+                      <span className="text-sm text-navy-700">{area}</span>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="mt-3 text-sm leading-relaxed text-ink-light">
+                  Chandigarh, Gurugram and Delhi are the currently published cities. Specific locality coverage is confirmed for each enquiry based on the requested service, date and physiotherapist availability.
+                </p>
+              )
             </div>
 
             <div className="lg:col-span-1">
@@ -253,7 +259,7 @@ export default function LocationPage() {
         <div className="container-page">
           <h3 className="font-display text-sm font-bold text-navy-700">Explore more locations</h3>
           <div className="mt-3 flex flex-wrap gap-3">
-            {locations.filter((l) => l.slug !== loc.slug).map((l) => (
+            {publishedLocations.filter((l) => l.slug !== loc.slug).map((l) => (
               <Link
                 key={l.slug}
                 to={`/locations/${l.slug}`}
