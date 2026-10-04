@@ -25,3 +25,9 @@ alter table public.enquiries enable row level security;
 
 -- No public SELECT/INSERT policies are created.
 -- The Vercel serverless endpoint uses the Supabase service-role key server-side.
+
+
+-- Safe migration for an existing enquiries table created before sport/role were added.
+alter table public.enquiries add column if not exists sport text;
+alter table public.enquiries add column if not exists role text;
+alter table public.enquiries add column if not exists email_status text not null default 'pending';
