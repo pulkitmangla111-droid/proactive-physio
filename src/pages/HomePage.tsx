@@ -82,8 +82,12 @@ export default function HomePage() {
       <section className="relative min-h-screen overflow-hidden bg-navy-700">
         <div className="absolute inset-0">
           <img
-            src="https://images.pexels.com/photos/34085834/pexels-photo-34085834.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
+            src="https://images.pexels.com/photos/34085834/pexels-photo-34085834.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop"
+            srcSet="https://images.pexels.com/photos/34085834/pexels-photo-34085834.jpeg?auto=compress&cs=tinysrgb&w=768&h=432&fit=crop 768w, https://images.pexels.com/photos/34085834/pexels-photo-34085834.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop 1280w, https://images.pexels.com/photos/34085834/pexels-photo-34085834.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop 1920w"
+            sizes="100vw"
             alt="Sports physiotherapist treating an injured athlete on a football field"
+            fetchPriority="high"
+            decoding="async"
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-navy-700/95 via-navy-700/80 to-navy-700/90" />
@@ -213,8 +217,10 @@ export default function HomePage() {
             <div className="relative">
               <div className="overflow-hidden rounded-3xl shadow-2xl shadow-navy-900/20">
                 <img
-                  src="https://images.pexels.com/photos/20860603/pexels-photo-20860603.jpeg?auto=compress&cs=tinysrgb&w=940&h=700&fit=crop"
+                  src="https://images.pexels.com/photos/20860603/pexels-photo-20860603.jpeg?auto=compress&cs=tinysrgb&w=640&h=477&fit=crop"
                   alt="Physiotherapist providing hands-on treatment to an athlete"
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover"
                 />
               </div>
@@ -317,6 +323,8 @@ export default function HomePage() {
                     <img
                       src={sport.image}
                       alt={`${sport.name} physiotherapy`}
+                      loading="lazy"
+                      decoding="async"
                       className="h-full w-full object-cover opacity-60 transition-all duration-500 group-hover:scale-110 group-hover:opacity-50"
                     />
                   </div>
@@ -462,6 +470,8 @@ export default function HomePage() {
                   <img
                     src={loc.image}
                     alt={`Sports physiotherapy in ${loc.name}`}
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
