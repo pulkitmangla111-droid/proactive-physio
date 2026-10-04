@@ -30,7 +30,7 @@ export default function LocationsIndexPage() {
                 className="group relative overflow-hidden rounded-2xl border border-surface-300 bg-white shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
               >
                 <div className="aspect-[16/9] overflow-hidden">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={loc.image}
                     alt={`Sports physiotherapy in ${loc.name}`}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
