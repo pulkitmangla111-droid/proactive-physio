@@ -21,7 +21,10 @@ export default function FAQAccordion({ faqs, title }: { faqs: FAQItem[]; title?:
             }`}
           >
             <button
+              type="button"
               onClick={() => setOpen(open === i ? null : i)}
+              aria-expanded={open === i}
+              aria-controls={`faq-answer-${i}`}
               className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
             >
               <span className={`font-display text-base font-semibold ${open === i ? 'text-teal-700' : 'text-navy-700'}`}>
@@ -34,6 +37,7 @@ export default function FAQAccordion({ faqs, title }: { faqs: FAQItem[]; title?:
               />
             </button>
             <div
+              id={`faq-answer-${i}`}
               className={`grid transition-all duration-300 ${
                 open === i ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
               }`}
