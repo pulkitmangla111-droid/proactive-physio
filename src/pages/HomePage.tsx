@@ -48,13 +48,13 @@ export default function HomePage() {
       slogan: 'Sports Physio, Wherever You Play.',
       description: 'ProActive Physio connects athletes, players, coaches, academies, clubs and sports teams with qualified physiotherapists who provide professional sports physiotherapy services directly at sports grounds, courts, fields, stadiums, academies and training venues.',
       areaServed: locations.map((l) => ({ '@type': 'City', name: l.name })),
-      url: 'https://proactive-physio-web-yefd.bolt.host',
+      url: 'https://proactivephysio.in',
     },
     {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
       name: 'ProActive Physio',
-      url: 'https://proactive-physio-web-yefd.bolt.host',
+      url: 'https://proactivephysio.in',
     },
     {
       '@context': 'https://schema.org',
