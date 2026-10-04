@@ -3,13 +3,45 @@ import { Mail, Phone, MapPin, Send, CheckCircle2, MessageSquare } from 'lucide-r
 import SEO from '@/components/SEO';
 import PageHeader from '@/components/PageHeader';
 import { locations } from '@/data/locations';
+import { submitEnquiry } from '@/lib/enquiry';
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [location, setLocation] = useState('');
+  const [role, setRole] = useState('');
+  const [message, setMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (submitting) return;
+    setError('');
+    setSubmitting(true);
+    try {
+      await submitEnquiry({
+        name,
+        email,
+        phone,
+        city: locations.find((item) => item.slug === location)?.name,
+        location: locations.find((item) => item.slug === location)?.name,
+        role,
+        message,
+        type: role.includes('Physiotherapist') ? 'physiotherapist' : 'contact',
+        website: e.currentTarget.elements.namedItem('website') instanceof HTMLInputElement
+          ? (e.currentTarget.elements.namedItem('website') as HTMLInputElement).value
+          : '',
+        sourcePage: window.location.href,
+      });
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "We couldn't submit your enquiry right now. Please try again or contact us directly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -104,19 +136,19 @@ export default function ContactPage() {
                   <div className="mt-6 grid gap-4 sm:grid-cols-2">
                     <div>
                       <label className="mb-1.5 block text-xs font-semibold text-navy-600">Full Name</label>
-                      <input type="text" required className="input-field" placeholder="Your name" />
+                      <input type="text" required value={name} onChange={(e) => setName(e.target.value)} className="input-field" placeholder="Your name" />
                     </div>
                     <div>
                       <label className="mb-1.5 block text-xs font-semibold text-navy-600">Email</label>
-                      <input type="email" required className="input-field" placeholder="you@example.com" />
+                      <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} className="input-field" placeholder="you@example.com" />
                     </div>
                     <div>
                       <label className="mb-1.5 block text-xs font-semibold text-navy-600">Phone</label>
-                      <input type="tel" className="input-field" placeholder="+91 83608 67991" />
+                      <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} className="input-field" placeholder="+91 83608 67991" />
                     </div>
                     <div>
                       <label className="mb-1.5 block text-xs font-semibold text-navy-600">Location</label>
-                      <select className="select-field">
+                      <select value={location} onChange={(e) => setLocation(e.target.value)} className="select-field">
                         <option value="">Select location</option>
                         {locations.map((l) => (
                           <option key={l.slug} value={l.slug}>{l.name}</option>
@@ -127,7 +159,7 @@ export default function ContactPage() {
 
                   <div className="mt-4">
                     <label className="mb-1.5 block text-xs font-semibold text-navy-600">I am a...</label>
-                    <select className="select-field">
+                    <select value={role} onChange={(e) => setRole(e.target.value)} className="select-field">
                       <option value="">Select an option</option>
                       <option>Individual Player / Athlete</option>
                       <option>Coach / Academy</option>
@@ -140,12 +172,14 @@ export default function ContactPage() {
 
                   <div className="mt-4">
                     <label className="mb-1.5 block text-xs font-semibold text-navy-600">Message</label>
-                    <textarea required rows={5} className="input-field resize-none" placeholder="Tell us what you need..." />
+                    <textarea required rows={5} value={message} onChange={(e) => setMessage(e.target.value)} className="input-field resize-none" placeholder="Tell us what you need..." />
                   </div>
 
-                  <button type="submit" className="btn-primary mt-6 w-full">
+                  <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
+                  {error && <p role="alert" className="mt-4 rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700">{error}</p>}
+                  <button type="submit" disabled={submitting} className="btn-primary mt-6 w-full disabled:cursor-not-allowed disabled:opacity-60">
                     <Send className="h-4 w-4" />
-                    Send Message
+                    {submitting ? "Sending..." : "Send Message"}
                   </button>
                 </form>
               )}
