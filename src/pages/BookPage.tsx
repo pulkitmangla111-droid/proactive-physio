@@ -53,6 +53,7 @@ export default function BookPage() {
         date: selectedDate,
         time: selectedTime,
         message,
+        website: (e.currentTarget.elements.namedItem('website') as HTMLInputElement)?.value || '',
         type: 'booking',
         sourcePage: window.location.href,
       });
