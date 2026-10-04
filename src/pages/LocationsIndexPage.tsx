@@ -3,7 +3,7 @@ import { MapPin, ArrowRight } from 'lucide-react';
 import SEO from '@/components/SEO';
 import PageHeader from '@/components/PageHeader';
 import CTASection from '@/components/CTASection';
-import { locations } from '@/data/locations';
+import { publishedLocations } from '@/data/locations';
 
 export default function LocationsIndexPage() {
   return (
@@ -23,7 +23,7 @@ export default function LocationsIndexPage() {
       <section className="py-16 lg:py-20">
         <div className="container-page">
           <div className="grid gap-6 lg:grid-cols-3">
-            {locations.map((loc) => (
+            {publishedLocations.map((loc) => (
               <Link
                 key={loc.slug}
                 to={`/locations/${loc.slug}`}
