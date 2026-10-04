@@ -54,6 +54,8 @@ export default async function handler(req: any, res: any) {
     const phone = clean(body.phone, 40);
     const email = clean(body.email, 160);
     const service = clean(body.service, 160);
+    const sport = clean(body.sport, 120);
+    const role = clean(body.role, 120);
     const city = clean(body.city, 120);
     const location = clean(body.location, 200);
     const date = clean(body.date, 40);
@@ -66,6 +68,10 @@ export default async function handler(req: any, res: any) {
     if (!phone && !email) return res.status(400).json({ error: 'Phone or email is required.' });
     if (!validEmail(email)) return res.status(400).json({ error: 'Please provide a valid email.' });
     if (!validPhone(phone)) return res.status(400).json({ error: 'Please provide a valid phone number.' });
+    if (type === 'booking' && !service) return res.status(400).json({ error: 'Please select a service.' });
+    if (type === 'booking' && !city) return res.status(400).json({ error: 'Please select a city.' });
+    if (type === 'booking' && !date) return res.status(400).json({ error: 'Please select a preferred date.' });
+    if (type === 'booking' && !time) return res.status(400).json({ error: 'Please select a preferred time.' });
 
     const supabaseUrl = process.env.SUPABASE_URL;
     const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -89,6 +95,8 @@ export default async function handler(req: any, res: any) {
       phone: phone || null,
       email: email || null,
       service: service || null,
+      sport: sport || null,
+      role: role || null,
       city: city || null,
       location: location || null,
       date: date || null,
@@ -131,6 +139,8 @@ export default async function handler(req: any, res: any) {
       field('Email', email),
       '<h3>BOOKING</h3>',
       field('Service', service),
+      field('Sport', sport),
+      field('Enquiry Type', role || type),
       field('City', city),
       field('Area', location),
       field('Date', date),
