@@ -50,7 +50,7 @@ export const gurugramFaqs: FAQItem[] = [
   {
     question: 'Do you provide sports physiotherapy across all of Gurugram?',
     answer:
-      'Yes. ProActive Physio provides on-ground sports physiotherapy across Gurugram, including DLF City, Sushant Lok, Sohna Road, Golf Course Road, Palam Vihar and surrounding areas. Our physiotherapists come to your training venue, academy or ground.',
+      'Gurugram is a currently published service city. Specific locality coverage, including areas such as Golf Course Road, Sohna Road and the DLF phases, is confirmed for each enquiry based on the requested service and therapist availability.',
   },
   {
     question: 'What sports do you support in Gurugram?',
@@ -73,7 +73,7 @@ export const chandigarhFaqs: FAQItem[] = [
   {
     question: 'Do you provide sports physiotherapy across all of Chandigarh?',
     answer:
-      'Yes. ProActive Physio provides on-ground sports physiotherapy across Chandigarh, including Sector 7, Sector 42, Sector 22, Golf Club Road, Punjab University and surrounding areas. We also cover Mohali and Panchkula as part of the Tricity.',
+      'Chandigarh is a currently published service city. Specific locality coverage, including Chandigarh sectors and nearby Tricity areas, is confirmed for each enquiry based on the requested service and therapist availability.',
   },
   {
     question: 'What sports do you support in Chandigarh?',
@@ -88,7 +88,7 @@ export const chandigarhFaqs: FAQItem[] = [
   {
     question: 'Do you cover Mohali and Panchkula?',
     answer:
-      'Yes. As part of the Tricity, we provide on-ground sports physiotherapy in Mohali and Panchkula as well as Chandigarh proper.',
+      'Mohali and Panchkula are proposed area preferences shown for convenience. Availability for a specific request is confirmed before an appointment is arranged.',
   },
 ];
 
