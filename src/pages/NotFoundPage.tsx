@@ -8,7 +8,8 @@ export default function NotFoundPage() {
     <>
       <SEO
         title="Page Not Found | ProActive Physio"
-        description="The page you are looking for could not be found. Explore ProActive Physio's physiotherapy services in Delhi, Gurugram and Chandigarh."
+        description="The page you are looking for could not be found. Explore ProActive Physio's physiotherapy services and service areas."
+        noindex
       />
 
       <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-navy-700 px-5">
