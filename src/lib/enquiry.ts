@@ -15,7 +15,7 @@ export interface EnquiryData {
   website?: string;
 }
 
-const API_URL = import.meta.env.VITE_ENQUIRY_API_URL || '/api/send-enquiry';
+const API_URL = 'https://pbpuytdhwmyvvklechhi.supabase.co/functions/v1/send-enquiry-email';
 
 export async function submitEnquiry(data: EnquiryData) {
   const response = await fetch(API_URL, {
