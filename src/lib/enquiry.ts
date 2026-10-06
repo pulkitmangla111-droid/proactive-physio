@@ -7,6 +7,9 @@ export interface EnquiryData {
   role?: string;
   city?: string;
   location?: string;
+  preferredArea?: string;
+  customArea?: string;
+  venueAddress?: string;
   date?: string;
   time?: string;
   message?: string;
