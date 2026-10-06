@@ -73,8 +73,8 @@ export default function HomePage() {
   return (
     <>
       <SEO
-        title="ProActive Physio | Sports Physiotherapy at Your Ground"
-        description="ProActive Physio provides physiotherapy in Delhi, including sports physiotherapy, geriatric physiotherapy and online physiotherapy consultation for personalized care."
+        title="ProActive Physio | Sports, Geriatric & Online Physiotherapy"
+        description="ProActive Physio offers sports physiotherapy, geriatric physiotherapy and online physiotherapy consultation across Delhi, Gurugram and Chandigarh, subject to service availability."
         structuredData={structuredData}
       />
 
@@ -247,6 +247,70 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Specialized Care */}
+      <section className="bg-white py-20 lg:py-28" aria-labelledby="specialized-care-heading">
+        <div className="container-page">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="section-label">
+              <Accessibility className="h-3 w-3" />
+              Specialized Care
+            </span>
+            <h2 id="specialized-care-heading" className="mt-5 font-display text-3xl font-extrabold text-navy-700 sm:text-4xl lg:text-5xl text-balance">
+              Specialized Care for Every Stage of Life
+            </h2>
+            <p className="mt-4 text-lg text-ink-light text-pretty">
+              Beyond sports physiotherapy, ProActive Physio also provides focused support for older adults and convenient online physiotherapy guidance when remote care is clinically appropriate.
+            </p>
+          </div>
+          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+            <article className="overflow-hidden rounded-3xl border border-surface-300 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+              <div className="grid lg:grid-cols-2">
+                <div className="aspect-[4/3] overflow-hidden lg:aspect-auto">
+                  <img src="https://images.pexels.com/photos/7551608/pexels-photo-7551608.jpeg?auto=compress&cs=tinysrgb&w=900&h=675&fit=crop" alt="Physiotherapy support for an older adult during an assisted exercise" loading="lazy" decoding="async" className="h-full w-full object-cover" />
+                </div>
+                <div className="flex flex-col p-7 sm:p-8">
+                  <span className="text-xs font-bold uppercase tracking-wider text-teal-600">For Older Adults</span>
+                  <div className="mt-3 flex h-12 w-12 items-center justify-center rounded-xl bg-teal-50">
+                    <Accessibility className="h-6 w-6 text-teal-600" strokeWidth={2} />
+                  </div>
+                  <h3 className="mt-5 font-display text-2xl font-bold text-navy-700">Geriatric Physiotherapy</h3>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-light">Personalized physiotherapy support for older adults focused on mobility, balance, strength and functional independence.</p>
+                  <div className="mt-5 grid gap-2 text-sm text-navy-700">
+                    {['Mobility & Movement Support','Balance & Stability Training','Strength & Functional Exercise','Recovery & Rehabilitation'].map((item) => (
+                      <div key={item} className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 flex-shrink-0 text-teal-500" /><span>{item}</span></div>
+                    ))}
+                  </div>
+                  <Link to="/book?service=geriatric-physiotherapy" className="btn-primary mt-7 w-full sm:w-auto"><CalendarPlus className="h-4 w-4" />Book Geriatric Physiotherapy<ArrowRight className="h-4 w-4" /></Link>
+                  <Link to="/services/geriatric-physiotherapy" className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-600 hover:text-teal-700">Explore Geriatric Physiotherapy <ArrowRight className="h-3.5 w-3.5" /></Link>
+                </div>
+              </div>
+            </article>
+            <article className="overflow-hidden rounded-3xl border border-surface-300 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+              <div className="grid lg:grid-cols-2">
+                <div className="order-2 aspect-[4/3] overflow-hidden lg:order-1 lg:aspect-auto">
+                  <img src="https://images.pexels.com/photos/7195319/pexels-photo-7195319.jpeg?auto=compress&cs=tinysrgb&w=900&h=675&fit=crop" alt="Physiotherapist conducting an online consultation with a patient" loading="lazy" decoding="async" className="h-full w-full object-cover" />
+                </div>
+                <div className="order-1 flex flex-col p-7 sm:p-8 lg:order-2">
+                  <span className="text-xs font-bold uppercase tracking-wider text-teal-600">Consult From Anywhere</span>
+                  <div className="mt-3 flex h-12 w-12 items-center justify-center rounded-xl bg-teal-50">
+                    <Video className="h-6 w-6 text-teal-600" strokeWidth={2} />
+                  </div>
+                  <h3 className="mt-5 font-display text-2xl font-bold text-navy-700">Online Physiotherapy Consultation</h3>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-light">Get professional physiotherapy guidance online for assessment, exercises, rehabilitation support and follow-up care.</p>
+                  <div className="mt-5 grid gap-2 text-sm text-navy-700">
+                    {['Online Physiotherapy Assessment','Exercise Guidance','Rehabilitation Follow-Up','Personalized Exercise Plans'].map((item) => (
+                      <div key={item} className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 flex-shrink-0 text-teal-500" /><span>{item}</span></div>
+                    ))}
+                  </div>
+                  <Link to="/book?service=online-physiotherapy-consultation" className="btn-primary mt-7 w-full sm:w-auto"><CalendarPlus className="h-4 w-4" />Book Online Consultation<ArrowRight className="h-4 w-4" /></Link>
+                  <Link to="/services/online-physiotherapy-consultation" className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-600 hover:text-teal-700">Explore Online Physiotherapy Consultation <ArrowRight className="h-3.5 w-3.5" /></Link>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </section>
