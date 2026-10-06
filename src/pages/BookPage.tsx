@@ -5,7 +5,7 @@ import SEO from '@/components/SEO';
 import BookingSearch from '@/components/BookingSearch';
 import { sports } from '@/data/sports';
 import { services } from '@/data/services';
-import { locations } from '@/data/locations';
+import { locations, locationAreaOptions } from '@/data/locations';
 import { submitEnquiry } from '@/lib/enquiry';
 
 export default function BookPage() {
@@ -32,6 +32,7 @@ export default function BookPage() {
   const [selectedService, setSelectedService] = useState(serviceSlug);
   const [selectedLocation, setSelectedLocation] = useState(locSlug);
   const [selectedArea, setSelectedArea] = useState(area);
+  const [customArea, setCustomArea] = useState('');
   const [selectedDate, setSelectedDate] = useState(date);
   const [selectedTime, setSelectedTime] = useState(time);
   const [venue, setVenue] = useState('');
@@ -43,6 +44,13 @@ export default function BookPage() {
     if (submitting) return;
 
     setError('');
+
+    const preferredAreaValue = selectedArea === '__other__' ? customArea.trim() : selectedArea.trim();
+    if (!preferredAreaValue) {
+      setError(selectedArea === '__other__' ? 'Please enter your preferred area.' : 'Please select your preferred area.');
+      return;
+    }
+
     setSubmitting(true);
 
     try {
@@ -56,7 +64,13 @@ export default function BookPage() {
             ? service.name
             : services.find((item) => item.slug === selectedService)?.name,
         city: locations.find((item) => item.slug === selectedLocation)?.name,
-        location: selectedArea || venue,
+        location: [
+          preferredAreaValue ? `Preferred area: ${preferredAreaValue}` : '',
+          venue.trim() ? `Venue address: ${venue.trim()}` : '',
+        ].filter(Boolean).join(' | '),
+        preferredArea: preferredAreaValue,
+        customArea: selectedArea === '__other__' ? preferredAreaValue : '',
+        venueAddress: venue.trim(),
         date: selectedDate,
         time: selectedTime,
         message,
@@ -369,7 +383,11 @@ export default function BookPage() {
                     <select
                       required
                       value={selectedLocation}
-                      onChange={(e) => setSelectedLocation(e.target.value)}
+                      onChange={(e) => {
+                        setSelectedLocation(e.target.value);
+                        setSelectedArea('');
+                        setCustomArea('');
+                      }}
                       className="select-field"
                     >
                       <option value="">Select location</option>
@@ -380,6 +398,52 @@ export default function BookPage() {
                         </option>
                       ))}
                     </select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="preferred-area" className="mb-1.5 block text-xs font-semibold text-navy-600">
+                      Preferred Area / Locality
+                    </label>
+                    <select
+                      id="preferred-area"
+                      required
+                      value={selectedArea}
+                      onChange={(e) => {
+                        setSelectedArea(e.target.value);
+                        if (e.target.value !== '__other__') setCustomArea('');
+                      }}
+                      className="select-field"
+                      disabled={!selectedLocation}
+                    >
+                      <option value="">{selectedLocation ? 'Select your preferred area' : 'Select a location first'}</option>
+                      {Array.from(new Set([
+                        ...(locationAreaOptions[selectedLocation] || []),
+                        ...(selectedLocation === 'chandigarh' ? ['Sector 8', 'Sector 9', 'Sector 10', 'Sector 15', 'Sector 26', 'Sector 46', 'Sector 47'] : []),
+                        ...(selectedLocation === 'gurugram' ? ['Sector 14', 'Sector 29', 'Sector 45', 'Udyog Vihar', 'Palam Vihar'] : []),
+                        ...(selectedLocation === 'delhi' ? ['Model Town', 'Ashok Vihar', 'Civil Lines', 'Shalimar Bagh', 'Netaji Subhash Place', 'Paschim Vihar'] : []),
+                        ...(selectedArea && selectedArea !== '__other__' && !(locationAreaOptions[selectedLocation] || []).includes(selectedArea) ? [selectedArea] : []),
+                      ])).map((areaOption) => (
+                        <option key={areaOption} value={areaOption}>{areaOption}</option>
+                      ))}
+                      <option value="__other__">Other Area</option>
+                    </select>
+                    {selectedArea === '__other__' && (
+                      <div className="mt-3">
+                        <label htmlFor="custom-area" className="mb-1.5 block text-xs font-semibold text-navy-600">
+                          Enter Your Preferred Area
+                        </label>
+                        <input
+                          id="custom-area"
+                          type="text"
+                          required
+                          maxLength={160}
+                          value={customArea}
+                          onChange={(e) => setCustomArea(e.target.value)}
+                          className="input-field"
+                          placeholder="Enter your sector, locality, landmark, or neighbourhood"
+                        />
+                      </div>
+                    )}
                   </div>
 
                   <div>
