@@ -156,9 +156,9 @@ export const services = [
       'Home-based care options where clinically appropriate',
       'Clear exercise guidance for patients and caregivers',
     ],
-    metaTitle: 'Geriatric Physiotherapy in Delhi | ProActive Physio',
+    metaTitle: 'Geriatric Physiotherapy | ProActive Physio',
     metaDescription:
-      'Individualized geriatric physiotherapy in Delhi for older adults, focusing on mobility, balance, strength, functional movement and everyday independence.',
+      'Geriatric physiotherapy for older adults across Delhi, including Rohini, Gurugram and Chandigarh, focusing on mobility, balance, strength and functional movement.'
   },
   {
     slug: 'online-physiotherapy-consultation',
