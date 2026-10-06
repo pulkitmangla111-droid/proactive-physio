@@ -13,15 +13,15 @@ export default function ServicesIndexPage() {
   return (
     <>
       <SEO
-        title="Sports Physiotherapy Services | ProActive Physio"
-        description="Professional sports physiotherapy services: sports injury care, rehabilitation, sports taping, warm-up preparation and recovery. Delivered on-ground with ProActive Physio."
+        title="Sports & Specialized Physiotherapy Services | ProActive Physio"
+        description="Explore sports physiotherapy, geriatric physiotherapy and online physiotherapy consultation with ProActive Physio across Delhi, Gurugram and Chandigarh."
       />
 
       <PageHeader
         breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Services' }]}
         label="Our Services"
-        title="Sports Physiotherapy Services"
-        subtitle="Comprehensive physiotherapy services for athletes, players, coaches, academies and teams — all delivered on-ground at your training venue."
+        title="Sports & Specialized Physiotherapy Services"
+        subtitle="Comprehensive sports physiotherapy plus specialized geriatric and online physiotherapy services, with availability confirmed for each request."
       />
 
       <section className="py-16 lg:py-20">
@@ -30,7 +30,7 @@ export default function ServicesIndexPage() {
             {services.map((service) => {
               const Icon = serviceIcons[service.icon] || Activity;
               return (
-                <Link key={service.slug} to={`/services/${service.slug}`} className="card group flex flex-col">
+                <Link key={service.slug} to={`/services/${service.slug}`} className={`card group flex flex-col ${service.slug === 'geriatric-physiotherapy' || service.slug === 'online-physiotherapy-consultation' ? 'border-teal-300 bg-teal-50/30 shadow-md ring-1 ring-teal-100' : ''}`}>
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500 to-brand-500 shadow-lg shadow-teal-500/20">
                     <Icon className="h-7 w-7 text-white" strokeWidth={2} />
                   </div>
