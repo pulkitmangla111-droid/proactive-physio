@@ -54,7 +54,7 @@ export default function ServicePage() {
         title={service.h1}
         subtitle={service.intro}
         ctaLabel={`Book ${service.name}`}
-        ctaHref="/book"
+        ctaHref={`/book?service=${service.slug}`}
       />
 
       {/* Main Content */}
@@ -85,9 +85,9 @@ export default function ServicePage() {
               <div className="card sticky top-24">
                 <h3 className="font-display text-base font-bold text-navy-700">Book this service</h3>
                 <p className="mt-2 text-sm text-ink-light">
-                  Select your sport, location and preferred date to book {service.name.toLowerCase()} at your venue.
+                  Select the relevant preferences and submit a booking request for {service.name.toLowerCase()}.
                 </p>
-                <Link to="/book" className="btn-primary mt-4 w-full">
+                <Link to={`/book?service=${service.slug}`} className="btn-primary mt-4 w-full">
                   <CalendarPlus className="h-4 w-4" />
                   Book Now
                 </Link>
