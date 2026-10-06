@@ -8,6 +8,9 @@ create table if not exists public.enquiries (
   role text,
   city text,
   location text,
+  preferred_area text,
+  custom_area text,
+  venue_address text,
   date text,
   time text,
   message text,
@@ -31,3 +34,8 @@ alter table public.enquiries enable row level security;
 alter table public.enquiries add column if not exists sport text;
 alter table public.enquiries add column if not exists role text;
 alter table public.enquiries add column if not exists email_status text not null default 'pending';
+
+-- Safe migration for preferred booking locality and venue address fields.
+alter table public.enquiries add column if not exists preferred_area text;
+alter table public.enquiries add column if not exists custom_area text;
+alter table public.enquiries add column if not exists venue_address text;
