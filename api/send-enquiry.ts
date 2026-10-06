@@ -57,7 +57,10 @@ export default async function handler(req: any, res: any) {
     const sport = clean(body.sport, 120);
     const role = clean(body.role, 120);
     const city = clean(body.city, 120);
-    const location = clean(body.location, 200);
+    const location = clean(body.location, 400);
+    const preferredArea = clean(body.preferredArea, 160);
+    const customArea = clean(body.customArea, 160);
+    const venueAddress = clean(body.venueAddress, 500);
     const date = clean(body.date, 40);
     const time = clean(body.time, 40);
     const message = clean(body.message, 3000);
@@ -99,6 +102,9 @@ export default async function handler(req: any, res: any) {
       role: role || null,
       city: city || null,
       location: location || null,
+      preferred_area: preferredArea || null,
+      custom_area: customArea || null,
+      venue_address: venueAddress || null,
       date: date || null,
       time: time || null,
       message: message || null,
@@ -142,7 +148,9 @@ export default async function handler(req: any, res: any) {
       field('Sport', sport),
       field('Enquiry Type', role || type),
       field('City', city),
-      field('Area', location),
+      field('Preferred Area', preferredArea || location),
+      field('Custom Area', customArea),
+      field('Venue / Training Address', venueAddress),
       field('Date', date),
       field('Preferred Time', time),
       '<h3>MESSAGE</h3>',
