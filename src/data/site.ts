@@ -12,7 +12,6 @@ export const navLinks: NavLink[] = [
   { label: 'How It Works', href: '/how-it-works' },
   { label: 'For Players', href: '/for-players' },
   { label: 'For Teams', href: '/for-teams' },
-  { label: 'For Physiotherapists', href: '/for-physiotherapists' },
   { label: 'Resources', href: '/resources' },
   { label: 'FAQ', href: '/faq' },
 ];
