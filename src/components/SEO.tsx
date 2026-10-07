@@ -66,39 +66,18 @@ export default function SEO({
     const existing = document.querySelectorAll('script[data-structured-data]');
     existing.forEach((script) => script.remove());
 
-    const siteStructuredData = [
-      {
-        '@context': 'https://schema.org',
-        '@type': 'WebSite',
-        '@id': `${SITE_URL}/#website`,
-        name: 'ProActive Physio',
-        url: `${SITE_URL}/`,
-        inLanguage: 'en-IN',
-      },
-      {
-        '@context': 'https://schema.org',
-        '@type': 'MedicalBusiness',
-        '@id': `${SITE_URL}/#organization`,
-        name: 'ProActive Physio',
-        url: `${SITE_URL}/`,
-        logo: `${SITE_URL}/proactive_physio_logo.png`,
-        email: 'proactivephysioteam@gmail.com',
-        telephone: '+91-8360867991',
-        areaServed: ['Delhi', 'Gurugram', 'Chandigarh'],
-      },
-      {
-        '@context': 'https://schema.org',
-        '@type': 'WebPage',
-        '@id': `${canonicalUrl}#webpage`,
-        url: canonicalUrl,
-        name: title,
-        description,
-        isPartOf: { '@id': `${SITE_URL}/#website` },
-        inLanguage: 'en-IN',
-      },
-    ];
+    const pageStructuredData = {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      '@id': `${canonicalUrl}#webpage`,
+      url: canonicalUrl,
+      name: title,
+      description,
+      isPartOf: { '@id': `${SITE_URL}/#website` },
+      inLanguage: 'en-IN',
+    };
 
-    [...siteStructuredData, ...structuredData].forEach((data) => {
+    [pageStructuredData, ...structuredData].forEach((data) => {
       const script = document.createElement('script');
       script.type = 'application/ld+json';
       script.setAttribute('data-structured-data', 'true');
