@@ -70,6 +70,7 @@ export default function SEO({
       {
         '@context': 'https://schema.org',
         '@type': 'WebSite',
+        '@id': `${SITE_URL}/#website`,
         name: 'ProActive Physio',
         url: `${SITE_URL}/`,
         inLanguage: 'en-IN',
@@ -77,11 +78,23 @@ export default function SEO({
       {
         '@context': 'https://schema.org',
         '@type': 'Organization',
+        '@id': `${SITE_URL}/#organization`,
         name: 'ProActive Physio',
         url: `${SITE_URL}/`,
         logo: `${SITE_URL}/proactive_physio_logo.png`,
         email: 'proactivephysioteam@gmail.com',
         telephone: '+91-8360867991',
+        areaServed: ['Delhi', 'Gurugram', 'Chandigarh'],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        '@id': `${canonicalUrl}#webpage`,
+        url: canonicalUrl,
+        name: title,
+        description,
+        isPartOf: { '@id': `${SITE_URL}/#website` },
+        inLanguage: 'en-IN',
       },
     ];
 
