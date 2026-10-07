@@ -50,7 +50,7 @@ export default function PageHeader({
         )}
 
         {ctaLabel && ctaHref && (
-          <Link to={ctaHref} className="btn-primary mt-6 max-w-full sm:mt-8">
+          <Link to={ctaHref} className="btn-primary group mt-6 max-w-full sm:mt-8">
             <span className="break-anywhere">{ctaLabel}</span>
             <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1" />
           </Link>
