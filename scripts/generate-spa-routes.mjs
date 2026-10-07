@@ -11,8 +11,8 @@ const routes = [
 
 const routeMeta = {
   '/': {
-    title: 'ProActive Physio | Sports & Physiotherapy in Delhi, Gurugram & Chandigarh',
-    description: 'ProActive Physio offers sports, geriatric and online physiotherapy services in Delhi, Gurugram and Chandigarh. Book your consultation today.',
+    title: 'ProActive Physio | Physiotherapy in Delhi, Gurugram & Chandigarh',
+    description: 'ProActive Physio provides sports, geriatric and online physiotherapy services in Delhi, Gurugram and Chandigarh. Book a consultation today.',
   },
   '/services/sports-physiotherapy': {
     title: 'Sports Physiotherapy in Delhi, Gurugram & Chandigarh | ProActive Physio',
@@ -110,7 +110,7 @@ for (const route of routes) {
   const destination = join(process.cwd(), 'dist', route.slice(1), 'index.html');
   mkdirSync(join(destination, '..'), { recursive: true });
   cpSync(source, destination);
-  const html = applyMeta(readFileSync(destination, 'utf8'), route);
+  const html = applyMeta(readFileSync(destination, 'utf8'), route).replace(/\s*<noscript data-homepage-seo-fallback="true">[\s\S]*?<\/noscript>/, '');
   writeFileSync(destination, html);
 }
 cpSync(source, join(process.cwd(), 'dist', '404.html'));
