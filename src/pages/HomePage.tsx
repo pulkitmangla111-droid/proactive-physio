@@ -43,24 +43,6 @@ export default function HomePage() {
   const structuredData = [
     {
       '@context': 'https://schema.org',
-      '@type': 'Organization',
-      name: 'ProActive Physio',
-      slogan: 'Sports Physio, Wherever You Play.',
-      description: 'ProActive Physio connects athletes, players, coaches, academies, clubs and sports teams with qualified physiotherapists who provide professional sports physiotherapy services directly at sports grounds, courts, fields, stadiums, academies and training venues.',
-      areaServed: locations.map((l) => ({ '@type': 'City', name: l.name })),
-      url: 'https://proactivephysio.in',
-      telephone: '+91-8360867991',
-      email: 'proactivephysioteam@gmail.com',
-      contactPoint: [{ '@type': 'ContactPoint', telephone: '+91-8360867991', email: 'proactivephysioteam@gmail.com', contactType: 'customer service', areaServed: 'IN' }],
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'WebSite',
-      name: 'ProActive Physio',
-      url: 'https://proactivephysio.in',
-    },
-    {
-      '@context': 'https://schema.org',
       '@type': 'FAQPage',
       mainEntity: generalFaqs.map((f) => ({
         '@type': 'Question',
@@ -73,8 +55,8 @@ export default function HomePage() {
   return (
     <>
       <SEO
-        title="ProActive Physio | Sports, Geriatric & Online Physiotherapy"
-        description="ProActive Physio offers sports physiotherapy, geriatric physiotherapy and online physiotherapy consultation across Delhi, Gurugram and Chandigarh, subject to service availability."
+        title="ProActive Physio | Sports & Physiotherapy in Delhi, Gurugram & Chandigarh"
+        description="ProActive Physio offers sports, geriatric and online physiotherapy services in Delhi, Gurugram and Chandigarh. Book a consultation with us."
         structuredData={structuredData}
       />
 
