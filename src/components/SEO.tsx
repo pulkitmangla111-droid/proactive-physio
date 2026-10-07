@@ -77,7 +77,7 @@ export default function SEO({
       },
       {
         '@context': 'https://schema.org',
-        '@type': 'Organization',
+        '@type': 'MedicalBusiness',
         '@id': `${SITE_URL}/#organization`,
         name: 'ProActive Physio',
         url: `${SITE_URL}/`,
