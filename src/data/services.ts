@@ -18,9 +18,9 @@ export const services = [
       'Coordination with coaches and support staff when appropriate',
       'Ongoing monitoring and progression across your training week',
     ],
-    metaTitle: 'Sports Physiotherapy Services | ProActive Physio',
+    metaTitle: 'Sports Physiotherapy in Delhi, Gurugram & Chandigarh | ProActive Physio',
     metaDescription:
-      'Professional sports physiotherapy delivered on-ground at your training venue. Assessment, treatment and rehabilitation for athletes with ProActive Physio.',
+      'Sports physiotherapy in Delhi, Gurugram and Chandigarh with assessment, treatment and rehabilitation support from ProActive Physio.',
   },
   {
     slug: 'sports-injury-care',
@@ -156,9 +156,9 @@ export const services = [
       'Home-based care options where clinically appropriate',
       'Clear exercise guidance for patients and caregivers',
     ],
-    metaTitle: 'Geriatric Physiotherapy | ProActive Physio',
+    metaTitle: 'Geriatric Physiotherapy in Delhi, Gurugram & Chandigarh | ProActive Physio',
     metaDescription:
-      'Geriatric physiotherapy for older adults across Delhi, including Rohini, Gurugram and Chandigarh, focusing on mobility, balance, strength and functional movement.'
+      'Geriatric physiotherapy for older adults in Delhi, Gurugram and Chandigarh, focused on mobility, balance, strength and function.'
   },
   {
     slug: 'online-physiotherapy-consultation',
@@ -181,7 +181,7 @@ export const services = [
     ],
     metaTitle: 'Online Physiotherapy Consultation | ProActive Physio',
     metaDescription:
-      'Book an online physiotherapy consultation for movement concerns, rehabilitation goals and personalized exercise guidance when remote care is appropriate.',
+      'Online physiotherapy consultation for movement concerns, rehabilitation goals and exercise guidance when remote care is appropriate.'
   },
 ] as const;
 
