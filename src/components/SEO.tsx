@@ -45,12 +45,14 @@ export default function SEO({
     setMeta('meta[property="og:type"]', 'property', 'website');
     setMeta('meta[property="og:site_name"]', 'property', 'ProActive Physio');
     setMeta('meta[property="og:image"]', 'property', image);
+    setMeta('meta[property="og:image:alt"]', 'property', 'ProActive Physio logo');
     setMeta('meta[property="og:locale"]', 'property', 'en_IN');
 
     setMeta('meta[name="twitter:card"]', 'name', 'summary_large_image');
     setMeta('meta[name="twitter:title"]', 'name', title);
     setMeta('meta[name="twitter:description"]', 'name', description);
     setMeta('meta[name="twitter:image"]', 'name', image);
+    setMeta('meta[name="twitter:image:alt"]', 'name', 'ProActive Physio logo');
     setMeta('meta[name="twitter:url"]', 'name', canonicalUrl);
 
     let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
