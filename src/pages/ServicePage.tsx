@@ -24,15 +24,26 @@ export default function ServicePage() {
 
   const Icon = serviceIcons[service.icon] || Activity;
 
+  const canonicalUrl = `https://proactivephysio.in/services/${service.slug}/`;
+
   const structuredData = [
     {
       '@context': 'https://schema.org',
       '@type': 'Service',
       serviceType: service.name,
-      provider: { '@type': 'Organization', name: 'ProActive Physio' },
+      provider: { '@type': 'Organization', name: 'ProActive Physio', url: 'https://proactivephysio.in/' },
       description: service.intro,
       areaServed: locations.map((l) => ({ '@type': 'City', name: l.name })),
-      url: `https://proactivephysio.in/services/${service.slug}`,
+      url: canonicalUrl,
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://proactivephysio.in/' },
+        { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://proactivephysio.in/services/' },
+        { '@type': 'ListItem', position: 3, name: service.name, item: canonicalUrl },
+      ],
     },
   ];
 
@@ -78,6 +89,18 @@ export default function ServicePage() {
                     <span className="text-sm text-ink-light">{benefit}</span>
                   </div>
                 ))}
+              </div>
+
+              <div className="mt-10 rounded-2xl border border-surface-300 bg-surface-100 p-5">
+                <h3 className="font-display text-lg font-bold text-navy-700">Next steps</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-light">
+                  Review the booking options for this service, browse frequently asked questions, or contact ProActive Physio if you need help choosing the right service.
+                </p>
+                <div className="mt-4 flex flex-wrap gap-3">
+                  <Link to={`/book?service=${service.slug}`} className="text-sm font-semibold text-teal-600 hover:text-teal-700">Book this service</Link>
+                  <Link to="/faq" className="text-sm font-semibold text-teal-600 hover:text-teal-700">Read physiotherapy FAQs</Link>
+                  <Link to="/contact" className="text-sm font-semibold text-teal-600 hover:text-teal-700">Contact ProActive Physio</Link>
+                </div>
               </div>
             </div>
 
