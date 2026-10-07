@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, CalendarPlus, Users, Stethoscope } from 'lucide-react';
+import { ArrowRight, CalendarPlus, Users } from 'lucide-react';
 
 interface CTASectionProps {
   title?: string;
@@ -37,10 +37,6 @@ export default function CTASection({
           <Link to="/for-teams" className="btn-secondary">
             <Users className="h-4 w-4" />
             Book for Your Team
-          </Link>
-          <Link to="/for-physiotherapists" className="btn-secondary">
-            <Stethoscope className="h-4 w-4" />
-            Join as a Physiotherapist
           </Link>
         </div>
 
