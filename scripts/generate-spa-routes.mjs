@@ -12,7 +12,7 @@ const routes = [
 const routeMeta = {
   '/': {
     title: 'ProActive Physio | Sports & Physiotherapy in Delhi, Gurugram & Chandigarh',
-    description: 'ProActive Physio offers sports, geriatric and online physiotherapy services in Delhi, Gurugram and Chandigarh. Book a consultation with us.',
+    description: 'ProActive Physio offers sports, geriatric and online physiotherapy services in Delhi, Gurugram and Chandigarh. Book your consultation today.',
   },
   '/services/sports-physiotherapy': {
     title: 'Sports Physiotherapy in Delhi, Gurugram & Chandigarh | ProActive Physio',
