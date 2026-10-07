@@ -1,5 +1,50 @@
 export const services = [
   {
+    slug: 'geriatric-physiotherapy',
+    name: 'Geriatric Physiotherapy',
+    icon: 'Accessibility',
+    short:
+      'Individualized physiotherapy support for older adults, focusing on mobility, balance, strength, functional movement, and everyday independence according to individual needs.',
+    h1: 'Geriatric Physiotherapy',
+    intro:
+      'Individualized physiotherapy support for older adults, delivered with care and focused on safe movement, confidence and everyday independence.',
+    description:
+      'Geriatric physiotherapy supports older adults with individualized care plans focused on mobility, balance, strength, functional movement and everyday independence. Sessions are adapted to each person\u2019s needs, goals, environment and comfort, with a focus on practical movement that can support daily activities and quality of life.',
+    benefits: [
+      'Individualized mobility and functional movement support',
+      'Balance and strength exercises adapted to personal needs',
+      'Guidance for safer everyday movement and independence',
+      'Support for recovery after periods of reduced activity',
+      'Home-based care options where clinically appropriate',
+      'Clear exercise guidance for patients and caregivers',
+    ],
+    metaTitle: 'Geriatric Physiotherapy in Delhi, Gurugram & Chandigarh | ProActive Physio',
+    metaDescription:
+      'Geriatric physiotherapy for older adults in Delhi, Gurugram and Chandigarh, focused on mobility, balance, strength and function.'
+  },
+  {
+    slug: 'online-physiotherapy-consultation',
+    name: 'Online Physiotherapy Consultation',
+    icon: 'Video',
+    short:
+      'Convenient online physiotherapy consultations for discussing movement concerns, rehabilitation goals, and personalized exercise guidance when remote care is clinically appropriate.',
+    h1: 'Online Physiotherapy Consultation',
+    intro:
+      'Convenient online physiotherapy consultations for discussing movement concerns, rehabilitation goals and personalized exercise guidance when remote care is clinically appropriate.',
+    description:
+      'Online physiotherapy consultations provide a convenient way to discuss movement concerns, rehabilitation goals and exercise guidance from home. A physiotherapist can review your concerns, discuss relevant history, observe movement where possible and provide personalized guidance when remote care is clinically appropriate. If an in-person assessment is needed, you will be advised on the next step.',
+    benefits: [
+      'Convenient consultation from home or another suitable setting',
+      'Discussion of movement concerns and rehabilitation goals',
+      'Personalized exercise guidance when clinically appropriate',
+      'Progress reviews for suitable ongoing rehabilitation plans',
+      'Practical advice for patients and caregivers',
+      'Clear guidance when in-person assessment may be needed',
+    ],
+    metaTitle: 'Online Physiotherapy Consultation | ProActive Physio',
+    metaDescription:
+      'Online physiotherapy consultation for movement concerns, rehabilitation goals and exercise guidance when remote care is appropriate.'
+  },  {
     slug: 'sports-physiotherapy',
     name: 'Sports Physiotherapy',
     icon: 'Stethoscope',
@@ -137,52 +182,7 @@ export const services = [
     metaDescription:
       'Post-training and post-match recovery strategies for athletes and teams. On-ground recovery support with ProActive Physio.',
   },
-  {
-    slug: 'geriatric-physiotherapy',
-    name: 'Geriatric Physiotherapy',
-    icon: 'Accessibility',
-    short:
-      'Individualized physiotherapy support for older adults, focusing on mobility, balance, strength, functional movement, and everyday independence according to individual needs.',
-    h1: 'Geriatric Physiotherapy',
-    intro:
-      'Individualized physiotherapy support for older adults, delivered with care and focused on safe movement, confidence and everyday independence.',
-    description:
-      'Geriatric physiotherapy supports older adults with individualized care plans focused on mobility, balance, strength, functional movement and everyday independence. Sessions are adapted to each person\u2019s needs, goals, environment and comfort, with a focus on practical movement that can support daily activities and quality of life.',
-    benefits: [
-      'Individualized mobility and functional movement support',
-      'Balance and strength exercises adapted to personal needs',
-      'Guidance for safer everyday movement and independence',
-      'Support for recovery after periods of reduced activity',
-      'Home-based care options where clinically appropriate',
-      'Clear exercise guidance for patients and caregivers',
-    ],
-    metaTitle: 'Geriatric Physiotherapy in Delhi, Gurugram & Chandigarh | ProActive Physio',
-    metaDescription:
-      'Geriatric physiotherapy for older adults in Delhi, Gurugram and Chandigarh, focused on mobility, balance, strength and function.'
-  },
-  {
-    slug: 'online-physiotherapy-consultation',
-    name: 'Online Physiotherapy Consultation',
-    icon: 'Video',
-    short:
-      'Convenient online physiotherapy consultations for discussing movement concerns, rehabilitation goals, and personalized exercise guidance when remote care is clinically appropriate.',
-    h1: 'Online Physiotherapy Consultation',
-    intro:
-      'Convenient online physiotherapy consultations for discussing movement concerns, rehabilitation goals and personalized exercise guidance when remote care is clinically appropriate.',
-    description:
-      'Online physiotherapy consultations provide a convenient way to discuss movement concerns, rehabilitation goals and exercise guidance from home. A physiotherapist can review your concerns, discuss relevant history, observe movement where possible and provide personalized guidance when remote care is clinically appropriate. If an in-person assessment is needed, you will be advised on the next step.',
-    benefits: [
-      'Convenient consultation from home or another suitable setting',
-      'Discussion of movement concerns and rehabilitation goals',
-      'Personalized exercise guidance when clinically appropriate',
-      'Progress reviews for suitable ongoing rehabilitation plans',
-      'Practical advice for patients and caregivers',
-      'Clear guidance when in-person assessment may be needed',
-    ],
-    metaTitle: 'Online Physiotherapy Consultation | ProActive Physio',
-    metaDescription:
-      'Online physiotherapy consultation for movement concerns, rehabilitation goals and exercise guidance when remote care is appropriate.'
-  },
+
 ] as const;
 
 export type Service = (typeof services)[number];
