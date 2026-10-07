@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
+import { Mail, MapPin, MessageCircle } from 'lucide-react';
 import { locations } from '@/data/locations';
 import { sports } from '@/data/sports';
 import { services } from '@/data/services';
@@ -25,9 +25,6 @@ export default function Footer() {
             <div className="mt-6 space-y-2.5">
               <a href="mailto:proactivephysioteam@gmail.com" className="flex items-center gap-2.5 text-sm text-white/60 hover:text-teal-300">
                 <Mail className="h-4 w-4" /> proactivephysioteam@gmail.com
-              </a>
-              <a href="tel:+918360867991" className="flex items-center gap-2.5 text-sm text-white/60 hover:text-teal-300">
-                <Phone className="h-4 w-4" /> +91 83608 67991
               </a>
               <a href="https://wa.me/918360867991" className="flex items-center gap-2.5 text-sm text-white/60 hover:text-teal-300" target="_blank" rel="noreferrer">
                 <MessageCircle className="h-4 w-4" /> WhatsApp us
