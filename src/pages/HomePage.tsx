@@ -90,9 +90,9 @@ export default function HomePage() {
               </div>
 
               <h1 className="mt-6 font-display text-5xl font-extrabold leading-[1.05] text-white sm:text-6xl lg:text-7xl text-balance animate-fade-up">
-                Sports Physio,
+                Professional Physiotherapy Services in Delhi, Gurugram &amp; Chandigarh
                 <span className="block bg-gradient-to-r from-teal-400 via-teal-300 to-brand-300 bg-clip-text text-transparent">
-                  Wherever You Play.
+                  Sports &amp; Physiotherapy Support.
                 </span>
               </h1>
 
