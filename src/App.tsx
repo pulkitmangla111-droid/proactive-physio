@@ -12,7 +12,6 @@ const ServicePage = lazy(() => import('@/pages/ServicePage'));
 const HowItWorksPage = lazy(() => import('@/pages/HowItWorksPage'));
 const ForPlayersPage = lazy(() => import('@/pages/ForPlayersPage'));
 const ForTeamsPage = lazy(() => import('@/pages/ForTeamsPage'));
-const ForPhysiotherapistsPage = lazy(() => import('@/pages/ForPhysiotherapistsPage'));
 const ResourcesPage = lazy(() => import('@/pages/ResourcesPage'));
 const FAQPage = lazy(() => import('@/pages/FAQPage'));
 const AboutPage = lazy(() => import('@/pages/AboutPage'));
@@ -42,7 +41,6 @@ export default function App() {
             <Route path="/how-it-works" element={<HowItWorksPage />} />
             <Route path="/for-players" element={<ForPlayersPage />} />
             <Route path="/for-teams" element={<ForTeamsPage />} />
-            <Route path="/for-physiotherapists" element={<ForPhysiotherapistsPage />} />
             <Route path="/resources" element={<ResourcesPage />} />
             <Route path="/faq" element={<FAQPage />} />
             <Route path="/about" element={<AboutPage />} />
