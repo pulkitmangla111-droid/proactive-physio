@@ -12,9 +12,29 @@
     scroll-behavior: smooth;
   }
 
+  html {
+    width: 100%;
+    overflow-x: clip;
+  }
+
   body {
     @apply font-sans bg-surface text-ink antialiased;
+    width: 100%;
+    min-width: 0;
+    overflow-x: clip;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  img, svg, video, canvas {
+    max-width: 100%;
+  }
+
+  button, a, input, select, textarea {
+    min-width: 0;
+  }
+
+  input, select, textarea {
+    max-width: 100%;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -28,7 +48,7 @@
 
 @layer components {
   .container-page {
-    @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
   }
 
   .btn-primary {
@@ -113,5 +133,103 @@
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+}
+
+
+@layer utilities {
+  .break-anywhere {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .safe-width {
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 1023px) {
+  .container-page {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: clamp(2rem, 9vw, 2.75rem);
+    line-height: 1.08;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    line-height: 1.15;
+  }
+
+  h3 {
+    font-size: clamp(1.15rem, 5vw, 1.5rem);
+    line-height: 1.2;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-outline {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .card {
+    padding: 1.125rem;
+  }
+
+  .prose-physio {
+    overflow-wrap: anywhere;
+  }
+
+  .prose-physio p,
+  .prose-physio li {
+    font-size: 0.9375rem;
+  }
+
+  table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 639px) {
+  .container-page {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-outline {
+    min-height: 44px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  section {
+    scroll-margin-top: 4.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
