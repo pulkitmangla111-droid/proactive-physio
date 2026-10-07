@@ -63,7 +63,7 @@ export default function Navbar() {
   return (
     <>
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || !isHome ? 'bg-navy-700/95 backdrop-blur-lg shadow-lg shadow-navy-900/10' : 'bg-transparent'}`}>
-        <nav className="container-page flex h-16 items-center justify-between lg:h-18" aria-label="Main navigation">
+        <nav className="container-page flex h-16 min-w-0 items-center justify-between gap-3 lg:h-18" aria-label="Main navigation">
           <Logo variant="light" />
 
           <div className="hidden items-center gap-0.5 lg:flex">
@@ -157,7 +157,7 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="fixed inset-0 z-40 lg:hidden">
           <div className="absolute inset-0 bg-navy-900/60 backdrop-blur-sm" onClick={() => setMobileOpen(false)} />
-          <div className="absolute right-0 top-0 h-full w-[85%] max-w-sm overflow-y-auto bg-navy-700 shadow-2xl animate-slide-in">
+          <div className="absolute right-0 top-0 h-full w-[min(88%,24rem)] max-w-full overflow-y-auto overscroll-contain bg-navy-700 shadow-2xl animate-slide-in">
             <div className="flex h-16 items-center justify-between px-5">
               <Logo variant="light" />
               <button type="button" onClick={() => setMobileOpen(false)} className="text-white" aria-label="Close menu"><X className="h-6 w-6" /></button>
