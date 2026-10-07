@@ -313,7 +313,7 @@ export default function BookPage() {
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       className="input-field"
-                      placeholder="+91 83608 67991"
+                      placeholder="Enter your phone number"
                     />
                   </div>
 
