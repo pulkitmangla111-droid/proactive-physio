@@ -22,7 +22,7 @@ export default function PageHeader({
   ctaHref,
 }: PageHeaderProps) {
   return (
-    <section className="relative overflow-hidden bg-navy-700 pt-28 pb-16 lg:pt-32 lg:pb-20">
+    <section className="relative overflow-hidden bg-navy-700 pt-24 pb-14 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-20">
       {image && (
         <div className="absolute inset-0">
           <img src={image} alt="ProActive Physio physiotherapy services" className="h-full w-full object-cover opacity-20" />
@@ -36,23 +36,23 @@ export default function PageHeader({
         <Breadcrumbs items={breadcrumbs} />
 
         {label && (
-          <span className="section-label-dark mt-6">{label}</span>
+          <span className="section-label-dark mt-5 sm:mt-6">{label}</span>
         )}
 
-        <h1 className="mt-5 max-w-3xl font-display text-4xl font-extrabold text-white sm:text-5xl lg:text-6xl text-balance">
+        <h1 className="mt-4 max-w-3xl text-balance font-display text-4xl font-extrabold leading-[1.08] text-white sm:mt-5 sm:text-5xl lg:text-6xl">
           {title}
         </h1>
 
         {subtitle && (
-          <p className="mt-5 max-w-2xl text-lg text-white/70 text-pretty">
+          <p className="mt-4 max-w-2xl text-pretty text-base leading-7 text-white/70 sm:mt-5 sm:text-lg sm:leading-8">
             {subtitle}
           </p>
         )}
 
         {ctaLabel && ctaHref && (
-          <Link to={ctaHref} className="btn-primary mt-8 group">
-            {ctaLabel}
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          <Link to={ctaHref} className="btn-primary mt-6 max-w-full sm:mt-8">
+            <span className="break-anywhere">{ctaLabel}</span>
+            <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1" />
           </Link>
         )}
       </div>
