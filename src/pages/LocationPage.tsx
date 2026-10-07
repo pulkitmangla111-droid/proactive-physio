@@ -38,6 +38,15 @@ export default function LocationPage() {
         acceptedAnswer: { '@type': 'Answer', text: f.answer },
       })),
     },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://proactivephysio.in/' },
+        { '@type': 'ListItem', position: 2, name: 'Locations', item: 'https://proactivephysio.in/locations/' },
+        { '@type': 'ListItem', position: 3, name: loc.name, item: `https://proactivephysio.in/locations/${loc.slug}/` },
+      ],
+    },
   ];
 
   return (
