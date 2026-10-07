@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import {
-  ArrowRight, CalendarPlus, Users, Stethoscope, MapPin,
+  ArrowRight, CalendarPlus, Users, MapPin,
   ShieldCheck, Target, ClipboardCheck, Activity, ChevronDown,
   CircleDot, Circle, Disc, Disc3, Octagon, Hexagon, CircleDashed,
   Stethoscope, Bandage, HeartPulse, StretchHorizontal, Flame, BatteryCharging, Accessibility, Video, User, Megaphone, Trophy,
@@ -480,10 +480,6 @@ export default function HomePage() {
             <Link to="/for-teams" className="btn-outline group">
               <Users className="h-4 w-4" />
               For Teams
-            </Link>
-            <Link to="/for-physiotherapists" className="btn-outline group">
-              <Stethoscope className="h-4 w-4" />
-              For Physiotherapists
             </Link>
           </div>
         </div>
