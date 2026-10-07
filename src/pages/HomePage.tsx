@@ -55,8 +55,8 @@ export default function HomePage() {
   return (
     <>
       <SEO
-        title="ProActive Physio | Sports & Physiotherapy in Delhi, Gurugram & Chandigarh"
-        description="ProActive Physio offers sports, geriatric and online physiotherapy services in Delhi, Gurugram and Chandigarh. Book your consultation today."
+        title="ProActive Physio | Physiotherapy in Delhi, Gurugram & Chandigarh"
+        description="ProActive Physio provides sports, geriatric and online physiotherapy services in Delhi, Gurugram and Chandigarh. Book a consultation today."
         structuredData={structuredData}
       />
 
