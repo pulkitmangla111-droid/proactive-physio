@@ -7,7 +7,7 @@ import { sports } from '@/data/sports';
 import { services } from '@/data/services';
 import { locations, locationAreaOptions } from '@/data/locations';
 import { submitEnquiry } from '@/lib/enquiry';
-import { formatINR, homeVisitPackages } from '@/data/pricing';
+import { formatINR, getPackagePrice, homeVisitPackages, type PricingCity } from '@/data/pricing';
 
 export default function BookPage() {
   const [searchParams] = useSearchParams();
@@ -23,6 +23,9 @@ export default function BookPage() {
   const indicativePrice = indicativePriceParam && /^\d+$/.test(indicativePriceParam) ? Number(indicativePriceParam) : null;
   const packageId = searchParams.get('package') || '';
   const selectedPackage = homeVisitPackages.find((item) => item.id === packageId);
+  const selectedPackagePrice = selectedPackage && ['delhi', 'gurugram', 'chandigarh'].includes(locSlug)
+    ? getPackagePrice(locSlug as PricingCity, selectedPackage.sessions, selectedPackage.savingsPercent)
+    : null;
 
   const sport = sports.find((s) => s.slug === sportSlug);
   const service = services.find((s) => s.slug === serviceSlug);
@@ -79,7 +82,7 @@ export default function BookPage() {
         venueAddress: venue.trim(),
         date: selectedDate,
         time: selectedTime,
-        message: [message.trim(), indicativePrice !== null ? `Selected indicative price: ${formatINR(indicativePrice)} per session (to be confirmed)` : '', selectedPackage ? `Package enquiry: ${selectedPackage.name} (${selectedPackage.sessions} sessions)` : ''].filter(Boolean).join(' | '),
+        message: [message.trim(), indicativePrice !== null ? `Selected indicative price: ${formatINR(indicativePrice)} per session (to be confirmed)` : '', selectedPackage ? `Package enquiry: ${selectedPackage.name} (${selectedPackage.sessions} sessions${selectedPackagePrice !== null ? `, estimated total ${formatINR(selectedPackagePrice)}` : ''})` : ''].filter(Boolean).join(' | '),
         website:
           (e.currentTarget.elements.namedItem('website') as HTMLInputElement)
             ?.value || '',
