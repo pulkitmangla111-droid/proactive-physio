@@ -1,6 +1,9 @@
 name: Validate website changes
 
 on:
+  push:
+    branches:
+      - feature/pricing-services-system
   pull_request:
     branches:
       - main
