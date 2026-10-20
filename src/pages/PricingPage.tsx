@@ -80,7 +80,7 @@ export default function PricingPage() {
                 <p className="mt-2 flex items-center gap-1.5 text-sm text-ink-light"><Clock3 className="h-4 w-4" />{service.duration} minutes</p>
                 <p className="mt-3 text-sm leading-6 text-ink-light">{service.summary}</p>
                 <ul className="mt-4 space-y-2">{service.includes.map((item) => <li key={item} className="flex gap-2 text-sm text-ink-light"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-teal-600" />{item}</li>)}</ul>
-                <div className="mt-auto pt-6"><p className="text-xs text-ink-light">Indicative price</p><p className="mt-1 text-3xl font-bold text-navy-700">{formatINR(service.prices[city])}<span className="ml-1 text-sm font-normal text-ink-light">/ session</span></p><Link to={`/book?service=${encodeURIComponent(service.serviceSlug || service.id)}&location=${city}&price=${service.prices[city]}&duration=${service.duration}`} className="btn-primary mt-5 w-full">Request this service <ArrowRight className="h-4 w-4" /></Link></div>
+                <div className="mt-auto pt-6"><p className="text-xs text-ink-light">Indicative price</p><p className="mt-1 text-3xl font-bold text-navy-700">{formatINR(service.prices[city])}<span className="ml-1 text-sm font-normal text-ink-light">/ session</span></p><Link to={`/book?service=${encodeURIComponent(service.serviceSlug || service.id)}&serviceName=${encodeURIComponent(service.name)}&location=${city}&price=${service.prices[city]}&duration=${service.duration}`} className="btn-primary mt-5 w-full">Request this service <ArrowRight className="h-4 w-4" /></Link></div>
               </article>
             ))}
           </div>
