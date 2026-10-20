@@ -27,7 +27,20 @@ function escapeHtml(value: string) {
   return value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-export default async function handler(req: any, res: any) {
+interface ApiRequest {
+  headers: Record<string, string | string[] | undefined>;
+  method?: string;
+  body?: unknown;
+}
+
+interface ApiResponse {
+  status(code: number): ApiResponse;
+  json(body: unknown): ApiResponse;
+  setHeader(name: string, value: string): void;
+  end(): void;
+}
+
+export default async function handler(req: ApiRequest, res: ApiResponse) {
   const origin = String(req.headers.origin || '');
   if (origin && !ALLOWED_ORIGINS.has(origin)) {
     return res.status(403).json({ error: 'Origin not allowed.' });
@@ -45,7 +58,8 @@ export default async function handler(req: any, res: any) {
   if (rawLength > MAX_BODY_BYTES) return res.status(413).json({ error: 'Request is too large.' });
 
   try {
-    const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body || {};
+    const parsedBody: unknown = typeof req.body === 'string' ? JSON.parse(req.body) : req.body || {};
+    const body = parsedBody && typeof parsedBody === 'object' ? parsedBody as Record<string, unknown> : {};
 
     // Honeypot: bots fill this hidden field; legitimate users leave it empty.
     if (clean(body.website, 200)) return res.status(200).json({ ok: true });
