@@ -35,14 +35,14 @@ export default function PricingPage() {
 
   return (
     <>
-      <SEO title="Physiotherapy Pricing & Packages | ProActive Physio" description="Compare indicative physiotherapy session prices, durations and home-visit packages in Delhi, Gurugram and Chandigarh." />
+      <SEO title="Physiotherapy Pricing & Packages | ProActive Physio" description="View fixed physiotherapy prices, session durations and home-visit package totals in Delhi, Gurugram and Chandigarh." />
       <PageHeader breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Pricing' }]} label="Clear, upfront guidance" title="Physiotherapy Pricing" subtitle="Compare fixed service prices and session lengths in Delhi, Gurugram and Chandigarh before sending a booking request." />
 
       <section className="py-10 lg:py-14">
         <div className="container-page">
           <div className="rounded-3xl bg-navy-700 p-6 text-white sm:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">
             <div className="max-w-2xl">
-              <span className="section-label-dark"><ShieldCheck className="h-4 w-4" /> Transparent estimates</span>
+              <span className="section-label-dark"><ShieldCheck className="h-4 w-4" /> Fixed city pricing</span>
               <h2 className="mt-4 text-2xl font-bold text-white sm:text-3xl">Choose a service that fits your care needs</h2>
               <p className="mt-3 text-sm leading-6 text-white/70">Fixed prices in INR for the three listed cities. We confirm therapist availability before accepting a booking request.</p>
             </div>
@@ -91,7 +91,7 @@ export default function PricingPage() {
       <section className="bg-surface-100 py-16 lg:py-20">
         <div className="container-page">
           <div className="mx-auto max-w-3xl text-center"><span className="section-label">Multiple-session options</span><h2 className="mt-4 text-3xl font-bold text-navy-700">Home-visit packages</h2><p className="mt-3 text-ink-light">Suggested package structures for care plans recommended by a physiotherapist. Eligibility and final pricing are confirmed before any purchase.</p></div>
-          <div className="mt-8 grid gap-5 md:grid-cols-3">{homeVisitPackages.map((pack) => <article key={pack.id} className="card"><p className="text-sm font-semibold text-teal-700">{pack.sessions} sessions · {pack.validityDays} days validity</p><h3 className="mt-3 text-xl font-bold text-navy-700">{pack.name}</h3><p className="mt-2 text-sm leading-6 text-ink-light">{pack.description}</p><p className="mt-4 text-2xl font-bold text-navy-700">Save up to {pack.savingsPercent}%</p><p className="mt-1 text-xs text-ink-light">Indicative package discount, subject to confirmation</p><Link to={`/book?location=${city}&package=${pack.id}`} className="btn-outline mt-5 w-full">Ask about this package <ArrowRight className="h-4 w-4" /></Link></article>)}</div>
+          <div className="mt-8 grid gap-5 md:grid-cols-3">{homeVisitPackages.map((pack) => <article key={pack.id} className="card"><p className="text-sm font-semibold text-teal-700">{pack.sessions} sessions · {pack.validityDays} days validity</p><h3 className="mt-3 text-xl font-bold text-navy-700">{pack.name}</h3><p className="mt-2 text-sm leading-6 text-ink-light">{pack.description}</p><p className="mt-4 text-xs text-ink-light">Package total for {pricingCities.find((c) => c.slug === city)?.name}</p><p className="mt-1 text-2xl font-bold text-navy-700">{formatINR(getPackagePrice(city, pack.sessions, pack.savingsPercent))}</p><p className="mt-1 text-xs text-ink-light">Save {pack.savingsPercent}% off the standard session total; rounded to the nearest ₹50.</p><Link to={`/book?location=${city}&package=${pack.id}`} className="btn-outline mt-5 w-full">Ask about this package <ArrowRight className="h-4 w-4" /></Link></article>)}</div>
         </div>
       </section>
 
