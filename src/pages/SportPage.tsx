@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import {
   ArrowRight, Activity, AlertTriangle, Flame, BatteryCharging,
-  MapPin, CheckCircle2, CalendarPlus, ChevronRight,
+  MapPin, CalendarPlus, ChevronRight,
 } from 'lucide-react';
 import SEO from '@/components/SEO';
 import NotFoundPage from '@/pages/NotFoundPage';
