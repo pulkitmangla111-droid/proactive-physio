@@ -169,7 +169,7 @@ export default function Navbar() {
                     <button
                       type="button"
                       className="flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-sm font-medium text-white/80"
-                      onClick={() => setOpenDropdown(openDropdown === link.dropdown ? null : link.dropdown)}
+                      onClick={() => setOpenDropdown(openDropdown === link.dropdown ? null : (link.dropdown ?? null))}
                       aria-expanded={openDropdown === link.dropdown}
                     >
                       {link.label}

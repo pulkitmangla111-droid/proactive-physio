@@ -1,0 +1,50 @@
+name: Validate website changes
+
+on:
+  push:
+    branches:
+      - feature/pricing-services-system
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: TypeScript check
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Production build
+        run: npm run build
+        env:
+          VITE_BASE_PATH: /
+
+      - name: Prepare static routes
+        run: node scripts/generate-spa-routes.mjs
+
+      - name: Upload preview build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: proactive-physio-pr-preview
+          path: dist/
+          retention-days: 7

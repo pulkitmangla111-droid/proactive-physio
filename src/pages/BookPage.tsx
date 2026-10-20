@@ -7,16 +7,25 @@ import { sports } from '@/data/sports';
 import { services } from '@/data/services';
 import { locations, locationAreaOptions } from '@/data/locations';
 import { submitEnquiry } from '@/lib/enquiry';
+import { formatINR, getPackagePrice, homeVisitPackages, type PricingCity } from '@/data/pricing';
 
 export default function BookPage() {
   const [searchParams] = useSearchParams();
 
   const sportSlug = searchParams.get('sport') || '';
   const serviceSlug = searchParams.get('service') || '';
+  const serviceNameParam = searchParams.get('serviceName') || '';
   const locSlug = searchParams.get('location') || '';
   const area = searchParams.get('area') || '';
   const date = searchParams.get('date') || '';
   const time = searchParams.get('time') || '';
+  const indicativePriceParam = searchParams.get('price');
+  const indicativePrice = indicativePriceParam && /^\d+$/.test(indicativePriceParam) ? Number(indicativePriceParam) : null;
+  const packageId = searchParams.get('package') || '';
+  const selectedPackage = homeVisitPackages.find((item) => item.id === packageId);
+  const selectedPackagePrice = selectedPackage && ['delhi', 'gurugram', 'chandigarh'].includes(locSlug)
+    ? getPackagePrice(locSlug as PricingCity, selectedPackage.sessions, selectedPackage.savingsPercent)
+    : null;
 
   const sport = sports.find((s) => s.slug === sportSlug);
   const service = services.find((s) => s.slug === serviceSlug);
@@ -38,7 +47,7 @@ export default function BookPage() {
   const [venue, setVenue] = useState('');
   const [message, setMessage] = useState('');
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (submitting) return;
@@ -62,7 +71,7 @@ export default function BookPage() {
         service:
           service?.slug === selectedService
             ? service.name
-            : services.find((item) => item.slug === selectedService)?.name,
+            : services.find((item) => item.slug === selectedService)?.name || serviceNameParam || undefined,
         city: locations.find((item) => item.slug === selectedLocation)?.name,
         location: [
           preferredAreaValue ? `Preferred area: ${preferredAreaValue}` : '',
@@ -73,7 +82,7 @@ export default function BookPage() {
         venueAddress: venue.trim(),
         date: selectedDate,
         time: selectedTime,
-        message,
+        message: [message.trim(), indicativePrice !== null ? `Selected fixed price: ${formatINR(indicativePrice)} per session` : '', selectedPackage ? `Package enquiry: ${selectedPackage.name} (${selectedPackage.sessions} sessions${selectedPackagePrice !== null ? `, estimated total ${formatINR(selectedPackagePrice)}` : ''})` : ''].filter(Boolean).join(' | '),
         website:
           (e.currentTarget.elements.namedItem('website') as HTMLInputElement)
             ?.value || '',
@@ -282,6 +291,14 @@ export default function BookPage() {
               )}
 
               <form onSubmit={handleSubmit} className="card">
+                {(indicativePrice !== null || selectedPackage) && (
+                  <div className="mb-6 rounded-2xl border border-teal-200 bg-teal-50/70 p-4">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-teal-700">Pricing selection</p>
+                    {indicativePrice !== null && <p className="mt-2 text-2xl font-bold text-navy-700">{formatINR(indicativePrice)} <span className="text-sm font-normal text-ink-light">per session</span></p>}
+                    {selectedPackage && <><p className="mt-2 font-semibold text-navy-700">{selectedPackage.name} · {selectedPackage.sessions} sessions</p>{selectedPackagePrice !== null && <p className="mt-1 text-xl font-bold text-navy-700">{formatINR(selectedPackagePrice)} <span className="text-sm font-normal text-ink-light">package total</span></p>}</>}
+                    <p className="mt-2 text-xs leading-5 text-ink-light">This is a booking request, not a confirmed appointment. Listed prices apply to Delhi, Gurugram and Chandigarh only. Home-visit travel within the normal service area is included; any exceptional out-of-area charge will be discussed before confirmation.</p>
+                  </div>
+                )}
                 <h3 className="font-display text-base font-bold text-navy-700">
                   Your details
                 </h3>

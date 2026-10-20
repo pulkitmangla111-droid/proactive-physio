@@ -13,7 +13,7 @@ import FAQAccordion from '@/components/FAQAccordion';
 import { locations } from '@/data/locations';
 import { sports } from '@/data/sports';
 import { services } from '@/data/services';
-import { howItWorksSteps, whoCanBook, trustPoints, navLinks } from '@/data/site';
+import { howItWorksSteps, whoCanBook, trustPoints } from '@/data/site';
 import { generalFaqs } from '@/data/faqs';
 
 const sportIcons: Record<string, React.ComponentType<{ className?: string; strokeWidth?: number | string }>> = {

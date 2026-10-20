@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Activity, Target, MapPin, Users, ArrowRight, ShieldCheck, Stethoscope } from 'lucide-react';
+import { Activity, Target, MapPin, ArrowRight, ShieldCheck, Stethoscope } from 'lucide-react';
 import SEO from '@/components/SEO';
 import PageHeader from '@/components/PageHeader';
 import CTASection from '@/components/CTASection';

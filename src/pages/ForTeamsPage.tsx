@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom';
-import { Users, ShieldCheck, Activity, Calendar, Trophy, ClipboardCheck, ArrowRight, MapPin, CheckCircle2 } from 'lucide-react';
+import { Users, ShieldCheck, Activity, Calendar, Trophy, ClipboardCheck, CheckCircle2 } from 'lucide-react';
 import SEO from '@/components/SEO';
 import PageHeader from '@/components/PageHeader';
 import CTASection from '@/components/CTASection';
