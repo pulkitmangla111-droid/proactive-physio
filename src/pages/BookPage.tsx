@@ -19,7 +19,7 @@ export default function BookPage() {
   const date = searchParams.get('date') || '';
   const time = searchParams.get('time') || '';
   const indicativePriceParam = searchParams.get('price');
-  const indicativePrice = indicativePriceParam && /^\\d+$/.test(indicativePriceParam) ? Number(indicativePriceParam) : null;
+  const indicativePrice = indicativePriceParam && /^\d+$/.test(indicativePriceParam) ? Number(indicativePriceParam) : null;
   const packageId = searchParams.get('package') || '';
   const selectedPackage = homeVisitPackages.find((item) => item.id === packageId);
 
