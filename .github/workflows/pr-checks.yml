@@ -35,3 +35,13 @@ jobs:
         run: npm run build
         env:
           VITE_BASE_PATH: /
+
+      - name: Prepare static routes
+        run: node scripts/generate-spa-routes.mjs
+
+      - name: Upload preview build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: proactive-physio-pr-preview
+          path: dist/
+          retention-days: 7
