@@ -5,7 +5,7 @@ const routes = [
   '/',
   '/locations', '/locations/delhi', '/locations/gurugram', '/locations/chandigarh',
   '/sports', '/sports/cricket', '/sports/football', '/sports/golf', '/sports/tennis', '/sports/kabaddi', '/sports/wrestling', '/sports/hockey',
-  '/services', '/services/sports-physiotherapy', '/services/sports-injury-care', '/services/sports-rehabilitation', '/services/sports-taping', '/services/warm-up', '/services/recovery', '/services/geriatric-physiotherapy', '/services/online-physiotherapy-consultation',
+  '/services', '/pricing', '/services/sports-physiotherapy', '/services/sports-injury-care', '/services/sports-rehabilitation', '/services/sports-taping', '/services/warm-up', '/services/recovery', '/services/geriatric-physiotherapy', '/services/online-physiotherapy-consultation',
   '/how-it-works', '/for-players', '/for-teams', '/resources', '/faq', '/about', '/contact', '/book', '/privacy-policy', '/terms',
 ];
 
@@ -13,6 +13,10 @@ const routeMeta = {
   '/': {
     title: 'ProActive Physio | Physiotherapy in Delhi, Gurugram & Chandigarh',
     description: 'ProActive Physio provides sports, geriatric and online physiotherapy services in Delhi, Gurugram and Chandigarh. Book a consultation today.',
+  },
+  '/pricing': {
+    title: 'Physiotherapy Pricing & Packages | ProActive Physio',
+    description: 'Compare indicative physiotherapy session prices, durations and home-visit packages in Delhi, Gurugram and Chandigarh. Final prices and availability are confirmed after enquiry.',
   },
   '/services/sports-physiotherapy': {
     title: 'Sports Physiotherapy in Delhi, Gurugram & Chandigarh | ProActive Physio',
