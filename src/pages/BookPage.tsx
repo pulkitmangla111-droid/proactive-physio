@@ -14,6 +14,7 @@ export default function BookPage() {
 
   const sportSlug = searchParams.get('sport') || '';
   const serviceSlug = searchParams.get('service') || '';
+  const serviceNameParam = searchParams.get('serviceName') || '';
   const locSlug = searchParams.get('location') || '';
   const area = searchParams.get('area') || '';
   const date = searchParams.get('date') || '';
@@ -67,7 +68,7 @@ export default function BookPage() {
         service:
           service?.slug === selectedService
             ? service.name
-            : services.find((item) => item.slug === selectedService)?.name,
+            : services.find((item) => item.slug === selectedService)?.name || serviceNameParam || undefined,
         city: locations.find((item) => item.slug === selectedLocation)?.name,
         location: [
           preferredAreaValue ? `Preferred area: ${preferredAreaValue}` : '',
