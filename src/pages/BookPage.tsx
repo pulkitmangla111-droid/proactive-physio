@@ -82,7 +82,7 @@ export default function BookPage() {
         venueAddress: venue.trim(),
         date: selectedDate,
         time: selectedTime,
-        message: [message.trim(), indicativePrice !== null ? `Selected indicative price: ${formatINR(indicativePrice)} per session (to be confirmed)` : '', selectedPackage ? `Package enquiry: ${selectedPackage.name} (${selectedPackage.sessions} sessions${selectedPackagePrice !== null ? `, estimated total ${formatINR(selectedPackagePrice)}` : ''})` : ''].filter(Boolean).join(' | '),
+        message: [message.trim(), indicativePrice !== null ? `Selected fixed price: ${formatINR(indicativePrice)} per session` : '', selectedPackage ? `Package enquiry: ${selectedPackage.name} (${selectedPackage.sessions} sessions${selectedPackagePrice !== null ? `, estimated total ${formatINR(selectedPackagePrice)}` : ''})` : ''].filter(Boolean).join(' | '),
         website:
           (e.currentTarget.elements.namedItem('website') as HTMLInputElement)
             ?.value || '',
@@ -294,9 +294,9 @@ export default function BookPage() {
                 {(indicativePrice !== null || selectedPackage) && (
                   <div className="mb-6 rounded-2xl border border-teal-200 bg-teal-50/70 p-4">
                     <p className="text-xs font-semibold uppercase tracking-wide text-teal-700">Pricing selection</p>
-                    {indicativePrice !== null && <p className="mt-2 text-2xl font-bold text-navy-700">{formatINR(indicativePrice)} <span className="text-sm font-normal text-ink-light">indicative per session</span></p>}
-                    {selectedPackage && <p className="mt-2 font-semibold text-navy-700">{selectedPackage.name} · {selectedPackage.sessions} sessions</p>}
-                    <p className="mt-2 text-xs leading-5 text-ink-light">This is a request only. The team will confirm the final price, travel charges, package eligibility and availability before accepting an appointment.</p>
+                    {indicativePrice !== null && <p className="mt-2 text-2xl font-bold text-navy-700">{formatINR(indicativePrice)} <span className="text-sm font-normal text-ink-light">per session</span></p>}
+                    {selectedPackage && <><p className="mt-2 font-semibold text-navy-700">{selectedPackage.name} · {selectedPackage.sessions} sessions</p>{selectedPackagePrice !== null && <p className="mt-1 text-xl font-bold text-navy-700">{formatINR(selectedPackagePrice)} <span className="text-sm font-normal text-ink-light">package total</span></p>}</>}
+                    <p className="mt-2 text-xs leading-5 text-ink-light">This is a booking request, not a confirmed appointment. Listed prices apply to Delhi, Gurugram and Chandigarh only. Home-visit travel within the normal service area is included; any exceptional out-of-area charge will be discussed before confirmation.</p>
                   </div>
                 )}
                 <h3 className="font-display text-base font-bold text-navy-700">
