@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom';
-import { User, CalendarPlus, ShieldCheck, Activity, MapPin, CheckCircle2, ArrowRight, Target, HeartPulse } from 'lucide-react';
+import { User, CalendarPlus, ShieldCheck, Activity, MapPin, Target, HeartPulse } from 'lucide-react';
 import SEO from '@/components/SEO';
 import PageHeader from '@/components/PageHeader';
 import BookingSearch from '@/components/BookingSearch';
