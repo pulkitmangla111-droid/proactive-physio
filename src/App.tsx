@@ -8,6 +8,7 @@ const LocationPage = lazy(() => import('@/pages/LocationPage'));
 const SportsIndexPage = lazy(() => import('@/pages/SportsIndexPage'));
 const SportPage = lazy(() => import('@/pages/SportPage'));
 const ServicesIndexPage = lazy(() => import('@/pages/ServicesIndexPage'));
+const PricingPage = lazy(() => import('@/pages/PricingPage'));
 const ServicePage = lazy(() => import('@/pages/ServicePage'));
 const HowItWorksPage = lazy(() => import('@/pages/HowItWorksPage'));
 const ForPlayersPage = lazy(() => import('@/pages/ForPlayersPage'));
@@ -37,6 +38,7 @@ export default function App() {
             <Route path="/sports" element={<SportsIndexPage />} />
             <Route path="/sports/:sport" element={<SportPage />} />
             <Route path="/services" element={<ServicesIndexPage />} />
+            <Route path="/pricing" element={<PricingPage />} />
             <Route path="/services/:service" element={<ServicePage />} />
             <Route path="/how-it-works" element={<HowItWorksPage />} />
             <Route path="/for-players" element={<ForPlayersPage />} />
