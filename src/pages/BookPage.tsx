@@ -7,6 +7,7 @@ import { sports } from '@/data/sports';
 import { services } from '@/data/services';
 import { locations, locationAreaOptions } from '@/data/locations';
 import { submitEnquiry } from '@/lib/enquiry';
+import { formatINR, homeVisitPackages } from '@/data/pricing';
 
 export default function BookPage() {
   const [searchParams] = useSearchParams();
@@ -17,6 +18,10 @@ export default function BookPage() {
   const area = searchParams.get('area') || '';
   const date = searchParams.get('date') || '';
   const time = searchParams.get('time') || '';
+  const indicativePriceParam = searchParams.get('price');
+  const indicativePrice = indicativePriceParam && /^\\d+$/.test(indicativePriceParam) ? Number(indicativePriceParam) : null;
+  const packageId = searchParams.get('package') || '';
+  const selectedPackage = homeVisitPackages.find((item) => item.id === packageId);
 
   const sport = sports.find((s) => s.slug === sportSlug);
   const service = services.find((s) => s.slug === serviceSlug);
@@ -73,7 +78,7 @@ export default function BookPage() {
         venueAddress: venue.trim(),
         date: selectedDate,
         time: selectedTime,
-        message,
+        message: [message.trim(), indicativePrice !== null ? `Selected indicative price: ${formatINR(indicativePrice)} per session (to be confirmed)` : '', selectedPackage ? `Package enquiry: ${selectedPackage.name} (${selectedPackage.sessions} sessions)` : ''].filter(Boolean).join(' | '),
         website:
           (e.currentTarget.elements.namedItem('website') as HTMLInputElement)
             ?.value || '',
@@ -282,6 +287,14 @@ export default function BookPage() {
               )}
 
               <form onSubmit={handleSubmit} className="card">
+                {(indicativePrice !== null || selectedPackage) && (
+                  <div className="mb-6 rounded-2xl border border-teal-200 bg-teal-50/70 p-4">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-teal-700">Pricing selection</p>
+                    {indicativePrice !== null && <p className="mt-2 text-2xl font-bold text-navy-700">{formatINR(indicativePrice)} <span className="text-sm font-normal text-ink-light">indicative per session</span></p>}
+                    {selectedPackage && <p className="mt-2 font-semibold text-navy-700">{selectedPackage.name} · {selectedPackage.sessions} sessions</p>}
+                    <p className="mt-2 text-xs leading-5 text-ink-light">This is a request only. The team will confirm the final price, travel charges, package eligibility and availability before accepting an appointment.</p>
+                  </div>
+                )}
                 <h3 className="font-display text-base font-bold text-navy-700">
                   Your details
                 </h3>
