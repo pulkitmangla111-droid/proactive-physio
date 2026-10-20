@@ -4,13 +4,13 @@ import { ArrowRight, CheckCircle2, Clock3, MapPin, Search, ShieldCheck, Video, H
 import SEO from '@/components/SEO';
 import PageHeader from '@/components/PageHeader';
 import CTASection from '@/components/CTASection';
-import { formatINR, homeVisitPackages, pricedServices, pricingCategories, pricingCities, type PricingCategory, type PricingCity } from '@/data/pricing';
+import { formatINR, getPackagePrice, homeVisitPackages, pricedServices, pricingCategories, pricingCities, type PricingCategory, type PricingCity } from '@/data/pricing';
 
 const faqs = [
-  { q: 'How much does home physiotherapy cost?', a: 'Indicative home-visit prices start from ₹1,200 per session in the listed cities. The final quote depends on the service, locality, travel requirements and confirmed availability.' },
-  { q: 'Are these prices final?', a: 'These are proposed indicative prices, not a confirmed quote. We confirm the service, therapist availability, locality and final price before an appointment is accepted.' },
+  { q: 'How much does home physiotherapy cost?', a: 'Regular home physiotherapy starts at ₹800 per 45-minute session, depending on the selected city. Prices are fixed for the listed service and city; any exceptional travel charge is discussed before confirmation.' },
+  { q: 'Are these prices final?', a: 'The displayed service prices are fixed for Delhi, Gurugram and Chandigarh. Your booking request is still subject to therapist availability and confirmation.' },
   { q: 'Do you offer online consultations?', a: 'Yes. Online consultation and follow-up options are listed separately and are suitable only when remote care is appropriate for your concern.' },
-  { q: 'How do home-visit packages work?', a: 'Packages are suggested options for multiple sessions. The applicable service price, package eligibility, validity and any travel charges must be confirmed before purchase. No package is purchased on this page.' },
+  { q: 'How do home-visit packages work?', a: 'Package totals are calculated from the regular home-session rate for the selected city and rounded to the nearest ₹50. The team confirms eligibility and availability before accepting a package request.' },
   { q: 'Can I book a specific date and time?', a: 'You can submit your preferred date and time through the booking form. The request is not confirmed until the team contacts you.' },
   { q: 'Can physiotherapy replace medical advice?', a: 'No. Physiotherapy is not a substitute for emergency care or a medical diagnosis when one is needed. Seek urgent medical help for severe or sudden symptoms.' },
 ];
@@ -36,7 +36,7 @@ export default function PricingPage() {
   return (
     <>
       <SEO title="Physiotherapy Pricing & Packages | ProActive Physio" description="Compare indicative physiotherapy session prices, durations and home-visit packages in Delhi, Gurugram and Chandigarh." />
-      <PageHeader breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Pricing' }]} label="Clear, upfront guidance" title="Physiotherapy Pricing" subtitle="Compare services, session lengths and indicative prices before sending a booking request." />
+      <PageHeader breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Pricing' }]} label="Clear, upfront guidance" title="Physiotherapy Pricing" subtitle="Compare fixed service prices and session lengths in Delhi, Gurugram and Chandigarh before sending a booking request." />
 
       <section className="py-10 lg:py-14">
         <div className="container-page">
@@ -44,11 +44,11 @@ export default function PricingPage() {
             <div className="max-w-2xl">
               <span className="section-label-dark"><ShieldCheck className="h-4 w-4" /> Transparent estimates</span>
               <h2 className="mt-4 text-2xl font-bold text-white sm:text-3xl">Choose a service that fits your care needs</h2>
-              <p className="mt-3 text-sm leading-6 text-white/70">Prices shown are proposed starting estimates in INR. Your final quote is confirmed after we review the service, locality, travel and availability.</p>
+              <p className="mt-3 text-sm leading-6 text-white/70">Fixed prices in INR for the three listed cities. We confirm therapist availability before accepting a booking request.</p>
             </div>
             <div className="mt-5 grid grid-cols-2 gap-3 lg:mt-0 lg:min-w-64">
-              <div className="rounded-2xl bg-white/10 p-4"><p className="text-xs text-white/60">Online sessions from</p><p className="mt-1 text-xl font-bold">₹600</p></div>
-              <div className="rounded-2xl bg-white/10 p-4"><p className="text-xs text-white/60">In-person sessions from</p><p className="mt-1 text-xl font-bold">₹1,200</p></div>
+              <div className="rounded-2xl bg-white/10 p-4"><p className="text-xs text-white/60">Online sessions from</p><p className="mt-1 text-xl font-bold" >₹500</p></div>
+              <div className="rounded-2xl bg-white/10 p-4"><p className="text-xs text-white/60">Home visits from</p><p className="mt-1 text-xl font-bold" >₹800</p></div>
             </div>
           </div>
 
@@ -80,7 +80,7 @@ export default function PricingPage() {
                 <p className="mt-2 flex items-center gap-1.5 text-sm text-ink-light"><Clock3 className="h-4 w-4" />{service.duration} minutes</p>
                 <p className="mt-3 text-sm leading-6 text-ink-light">{service.summary}</p>
                 <ul className="mt-4 space-y-2">{service.includes.map((item) => <li key={item} className="flex gap-2 text-sm text-ink-light"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-teal-600" />{item}</li>)}</ul>
-                <div className="mt-auto pt-6"><p className="text-xs text-ink-light">Indicative price</p><p className="mt-1 text-3xl font-bold text-navy-700">{formatINR(service.prices[city])}<span className="ml-1 text-sm font-normal text-ink-light">/ session</span></p><Link to={`/book?service=${encodeURIComponent(service.serviceSlug || service.id)}&serviceName=${encodeURIComponent(service.name)}&location=${city}&price=${service.prices[city]}&duration=${service.duration}`} className="btn-primary mt-5 w-full">Request this service <ArrowRight className="h-4 w-4" /></Link></div>
+                <div className="mt-auto pt-6"><p className="text-xs text-ink-light">Fixed price · {pricingCities.find((c) => c.slug === city)?.name}</p><p className="mt-1 text-3xl font-bold text-navy-700">{formatINR(service.prices[city])}<span className="ml-1 text-sm font-normal text-ink-light">/ session</span></p><Link to={`/book?service=${encodeURIComponent(service.serviceSlug || service.id)}&serviceName=${encodeURIComponent(service.name)}&location=${city}&price=${service.prices[city]}&duration=${service.duration}`} className="btn-primary mt-5 w-full">Request this service <ArrowRight className="h-4 w-4" /></Link></div>
               </article>
             ))}
           </div>
@@ -95,7 +95,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <section className="py-16 lg:py-20"><div className="container-page max-w-4xl"><div className="text-center"><span className="section-label">Good to know</span><h2 className="mt-4 text-3xl font-bold text-navy-700">Pricing FAQs</h2></div><div className="mt-8 divide-y divide-surface-300 rounded-2xl border border-surface-300 bg-white px-5 sm:px-8">{faqs.map((faq) => <details key={faq.q} className="group py-5"><summary className="cursor-pointer list-none pr-5 font-semibold text-navy-700 marker:hidden">{faq.q}<span className="float-right text-teal-600 transition-transform group-open:rotate-45">＋</span></summary><p className="mt-3 text-sm leading-6 text-ink-light">{faq.a}</p></details>)}</div><p className="mt-5 text-xs leading-5 text-ink-light">Prices on this page are estimates for planning, not a diagnosis, treatment recommendation, offer of guaranteed availability or confirmed booking. Additional travel or special service charges may apply and will be discussed before confirmation.</p></div></section>
+      <section className="py-16 lg:py-20"><div className="container-page max-w-4xl"><div className="text-center"><span className="section-label">Good to know</span><h2 className="mt-4 text-3xl font-bold text-navy-700">Pricing FAQs</h2></div><div className="mt-8 divide-y divide-surface-300 rounded-2xl border border-surface-300 bg-white px-5 sm:px-8">{faqs.map((faq) => <details key={faq.q} className="group py-5"><summary className="cursor-pointer list-none pr-5 font-semibold text-navy-700 marker:hidden">{faq.q}<span className="float-right text-teal-600 transition-transform group-open:rotate-45">＋</span></summary><p className="mt-3 text-sm leading-6 text-ink-light">{faq.a}</p></details>)}</div><p className="mt-5 text-xs leading-5 text-ink-light">Listed prices are fixed for Delhi, Gurugram and Chandigarh and are not a confirmed booking. Home-visit travel within the normal service area is included; any exceptional out-of-area charge will be disclosed before confirmation. Prices are not a diagnosis or a promise of a particular recovery outcome.</p></div></section>
       <CTASection />
     </>
   );
