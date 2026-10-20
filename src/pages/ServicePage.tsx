@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import {
-  ArrowRight, CheckCircle2, CalendarPlus, Activity,
+  CheckCircle2, CalendarPlus, Activity,
   Stethoscope, Bandage, HeartPulse, StretchHorizontal, Flame, BatteryCharging, Accessibility, Video,
   MapPin,
 } from 'lucide-react';
