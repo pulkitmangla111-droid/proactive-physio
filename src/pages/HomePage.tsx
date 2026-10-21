@@ -252,7 +252,7 @@ export default function HomePage() {
             <article className="overflow-hidden rounded-3xl border border-surface-300 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
               <div className="grid lg:grid-cols-2">
                 <div className="aspect-[4/3] overflow-hidden lg:aspect-auto">
-                  <img src="https://images.pexels.com/photos/7551608/pexels-photo-7551608.jpeg?auto=compress&cs=tinysrgb&w=900&h=675&fit=crop" alt="Physiotherapy support for an older adult during an assisted exercise" loading="lazy" decoding="async" className="h-full w-full object-cover" />
+                  <img src="https://images.pexels.com/photos/7551608/pexels-photo-7551608.jpeg?auto=compress&cs=tinysrgb&w=900&h=675&fit=crop" alt="Older adult during an assisted mobility exercise" loading="lazy" decoding="async" className="h-full w-full object-cover" />
                 </div>
                 <div className="flex flex-col p-7 sm:p-8">
                   <span className="text-xs font-bold uppercase tracking-wider text-teal-600">For Older Adults</span>
