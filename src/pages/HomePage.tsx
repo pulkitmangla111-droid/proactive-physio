@@ -56,7 +56,7 @@ export default function HomePage() {
     <>
       <SEO
         title="ProActive Physio | Physiotherapy in Delhi, Gurugram & Chandigarh"
-        description="ProActive Physio provides sports, geriatric and online physiotherapy services in Delhi, Gurugram and Chandigarh. Book a consultation today."
+        description="ProActive Physio offers sports injury care, support for older adults and online guidance across Delhi, Gurugram and Chandigarh. Explore services or book an appointment."
         structuredData={structuredData}
       />
 
@@ -90,14 +90,14 @@ export default function HomePage() {
               </div>
 
               <h1 className="mt-6 font-display text-5xl font-extrabold leading-[1.05] text-white sm:text-6xl lg:text-7xl text-balance animate-fade-up">
-                Professional Physiotherapy Services in Delhi, Gurugram &amp; Chandigarh
+                Physiotherapy and Movement Care in Delhi, Gurugram &amp; Chandigarh
                 <span className="block bg-gradient-to-r from-teal-400 via-teal-300 to-brand-300 bg-clip-text text-transparent">
-                  Sports &amp; Physiotherapy Support.
+                  Sports, Recovery &amp; Rehabilitation.
                 </span>
               </h1>
 
               <p className="mt-6 max-w-xl text-lg text-white/70 text-pretty animate-fade-up" style={{ animationDelay: '0.1s' }}>
-                Professional physiotherapy support delivered directly to your sports ground, court, field, academy or training venue.
+                ProActive Physio brings sports injury assessment, on-ground care and rehabilitation to training venues, with additional support for older adults and online guidance when appropriate. Explore services in Delhi, Gurugram and Chandigarh or book an appointment.
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row animate-fade-up" style={{ animationDelay: '0.2s' }}>
@@ -167,13 +167,13 @@ export default function HomePage() {
                 What We Do
               </span>
               <h2 className="mt-5 font-display text-3xl font-extrabold text-navy-700 sm:text-4xl lg:text-5xl text-balance">
-                Professional sports physiotherapy, delivered at your venue.
+                On-site care for athletes, delivered at your venue.
               </h2>
               <p className="mt-5 text-lg text-ink-light text-pretty">
-                ProActive Physio connects athletes, players, coaches, academies, clubs and sports teams with qualified physiotherapists who provide professional sports physiotherapy services directly at sports grounds, courts, fields, stadiums, academies and training venues.
+                ProActive Physio connects athletes, players, coaches, academies, clubs and teams with qualified physiotherapists for on-site assessment and care at sports grounds, courts, fields and training venues.
               </p>
               <p className="mt-4 text-base text-ink-light text-pretty">
-                No clinic visits. No travel. Just professional, sport-specific physiotherapy — exactly where you train and compete.
+                No clinic visits. No travel. Practical, sport-specific care where you train and compete.
               </p>
 
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
@@ -245,7 +245,7 @@ export default function HomePage() {
               Specialized Care for Every Stage of Life
             </h2>
             <p className="mt-4 text-lg text-ink-light text-pretty">
-              Beyond sports physiotherapy, ProActive Physio also provides focused support for older adults and convenient online physiotherapy guidance when remote care is clinically appropriate.
+              Alongside care for athletes, we support older adults with mobility, balance and everyday movement, and offer online guidance when remote care is clinically appropriate.
             </p>
           </div>
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
@@ -260,36 +260,36 @@ export default function HomePage() {
                     <Accessibility className="h-6 w-6 text-teal-600" strokeWidth={2} />
                   </div>
                   <h3 className="mt-5 font-display text-2xl font-bold text-navy-700">Geriatric Physiotherapy</h3>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-light">Personalized physiotherapy support for older adults focused on mobility, balance, strength and functional independence.</p>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-light">Individualized care for older adults, with a focus on mobility, balance, strength and functional independence.</p>
                   <div className="mt-5 grid gap-2 text-sm text-navy-700">
                     {['Mobility & Movement Support','Balance & Stability Training','Strength & Functional Exercise','Recovery & Rehabilitation'].map((item) => (
                       <div key={item} className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 flex-shrink-0 text-teal-500" /><span>{item}</span></div>
                     ))}
                   </div>
                   <Link to="/book?service=geriatric-physiotherapy" className="btn-primary mt-7 w-full sm:w-auto"><CalendarPlus className="h-4 w-4" />Book Geriatric Physiotherapy<ArrowRight className="h-4 w-4" /></Link>
-                  <Link to="/services/geriatric-physiotherapy" className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-600 hover:text-teal-700">Explore Geriatric Physiotherapy <ArrowRight className="h-3.5 w-3.5" /></Link>
+                  <Link to="/services/geriatric-physiotherapy" className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-600 hover:text-teal-700">Explore Geriatric Care <ArrowRight className="h-3.5 w-3.5" /></Link>
                 </div>
               </div>
             </article>
             <article className="overflow-hidden rounded-3xl border border-surface-300 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
               <div className="grid lg:grid-cols-2">
                 <div className="order-2 aspect-[4/3] overflow-hidden lg:order-1 lg:aspect-auto">
-                  <img src="https://images.pexels.com/photos/7195319/pexels-photo-7195319.jpeg?auto=compress&cs=tinysrgb&w=900&h=675&fit=crop" alt="Physiotherapist conducting an online consultation with a patient" loading="lazy" decoding="async" className="h-full w-full object-cover" />
+                  <img src="https://images.pexels.com/photos/7195319/pexels-photo-7195319.jpeg?auto=compress&cs=tinysrgb&w=900&h=675&fit=crop" alt="Physiotherapist guiding a patient during a remote session" loading="lazy" decoding="async" className="h-full w-full object-cover" />
                 </div>
                 <div className="order-1 flex flex-col p-7 sm:p-8 lg:order-2">
                   <span className="text-xs font-bold uppercase tracking-wider text-teal-600">Consult From Anywhere</span>
                   <div className="mt-3 flex h-12 w-12 items-center justify-center rounded-xl bg-teal-50">
                     <Video className="h-6 w-6 text-teal-600" strokeWidth={2} />
                   </div>
-                  <h3 className="mt-5 font-display text-2xl font-bold text-navy-700">Online Physiotherapy Consultation</h3>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-light">Get professional physiotherapy guidance online for assessment, exercises, rehabilitation support and follow-up care.</p>
+                  <h3 className="mt-5 font-display text-2xl font-bold text-navy-700">Online Consultation</h3>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-light">Discuss movement concerns online and receive exercise, rehabilitation and follow-up guidance when remote care is appropriate.</p>
                   <div className="mt-5 grid gap-2 text-sm text-navy-700">
-                    {['Online Physiotherapy Assessment','Exercise Guidance','Rehabilitation Follow-Up','Personalized Exercise Plans'].map((item) => (
+                    {['Online Assessment','Exercise Guidance','Rehabilitation Follow-Up','Personalized Exercise Plans'].map((item) => (
                       <div key={item} className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 flex-shrink-0 text-teal-500" /><span>{item}</span></div>
                     ))}
                   </div>
                   <Link to="/book?service=online-physiotherapy-consultation" className="btn-primary mt-7 w-full sm:w-auto"><CalendarPlus className="h-4 w-4" />Book Online Consultation<ArrowRight className="h-4 w-4" /></Link>
-                  <Link to="/services/online-physiotherapy-consultation" className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-600 hover:text-teal-700">Explore Online Physiotherapy Consultation <ArrowRight className="h-3.5 w-3.5" /></Link>
+                  <Link to="/services/online-physiotherapy-consultation" className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-600 hover:text-teal-700">Explore Online Care <ArrowRight className="h-3.5 w-3.5" /></Link>
                 </div>
               </div>
             </article>
@@ -306,7 +306,7 @@ export default function HomePage() {
               Our Services
             </span>
             <h2 className="mt-5 font-display text-3xl font-extrabold text-navy-700 sm:text-4xl lg:text-5xl text-balance">
-              Comprehensive sports physiotherapy services
+              Sports care for training, injury and recovery
             </h2>
             <p className="mt-4 text-lg text-ink-light text-pretty">
               From injury care to rehabilitation, taping to recovery — everything delivered on-ground at your venue.
@@ -346,10 +346,10 @@ export default function HomePage() {
           <div className="mx-auto max-w-2xl text-center">
             <span className="section-label">
               <Target className="h-3 w-3" />
-              Sport-Specific Physiotherapy
+              Support for Your Sport
             </span>
             <h2 className="mt-5 font-display text-3xl font-extrabold text-navy-700 sm:text-4xl lg:text-5xl text-balance">
-              Physiotherapy built for your sport
+              Care built around your sport
             </h2>
             <p className="mt-4 text-lg text-ink-light text-pretty">
               Every sport has different demands. Our physiotherapists understand the specific injury patterns and movement requirements of your game.
@@ -368,7 +368,7 @@ export default function HomePage() {
                   <div className="aspect-[4/3] overflow-hidden">
                     <img
                       src={sport.image}
-                      alt={`${sport.name} physiotherapy`}
+                      alt={`${sport.name} athletes during training`}
                       loading="lazy"
                       decoding="async"
                       className="h-full w-full object-cover opacity-60 transition-all duration-500 group-hover:scale-110 group-hover:opacity-50"
@@ -379,7 +379,7 @@ export default function HomePage() {
                     <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-teal-500/20 backdrop-blur-sm">
                       <Icon className="h-4.5 w-4.5 text-teal-300" strokeWidth={2} />
                     </div>
-                    <h3 className="font-display text-lg font-bold text-white">{sport.name} Physiotherapy</h3>
+                    <h3 className="font-display text-lg font-bold text-white">{sport.name} Support</h3>
                     <p className="mt-1 text-xs text-white/60">Learn more</p>
                   </div>
                 </Link>
@@ -402,7 +402,7 @@ export default function HomePage() {
               How It Works
             </span>
             <h2 className="mt-5 font-display text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl text-balance">
-              Physiotherapy at your venue in four steps
+              How on-site care works in four steps
             </h2>
             <p className="mt-4 text-lg text-white/70 text-pretty">
               From selection to treatment — a simple, seamless process designed for athletes and teams.
@@ -511,7 +511,7 @@ export default function HomePage() {
                 <div className="aspect-[16/9] overflow-hidden">
                   <img
                     src={loc.image}
-                    alt={`Sports physiotherapy in ${loc.name}`}
+                    alt={`Sports injury and recovery support in ${loc.name}`}
                     loading="lazy"
                     decoding="async"
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -521,7 +521,7 @@ export default function HomePage() {
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <span className="text-xs font-semibold uppercase tracking-wider text-teal-300">{loc.state}</span>
                   <h3 className="mt-1 font-display text-2xl font-bold text-white">
-                    Sports Physiotherapy in {loc.name}
+                    Sports injury and recovery support in {loc.name}
                   </h3>
                   <p className="mt-2 text-sm text-white/70 line-clamp-2">{loc.intro}</p>
                   <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-300">
